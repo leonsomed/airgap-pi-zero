@@ -56,7 +56,14 @@ https://github.com/leonsomed/airgap-pi-zero/blob/main/btc-latest.html
 
 ### Create .img
 
-Using Raspberry Pi OS (SD Card Copier) to get an .img file out of the current system. Backup the file in case you need to flash another SD card you don’t need to repeat the whole process.
+Use the following commands to get an image out of the current SD card.
+
+```bash
+lsblk # this shows you the device name to paste in the next command
+sudo dd if=/dev/$DEVICE_NAME of=/path/to/image.img status=progress
+```
+
+You can then use Pi Imager to burn this image to a new SD card so make sure to backup this .img file in the cloud for later use.
 
 ### Done
 
