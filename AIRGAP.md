@@ -50,7 +50,9 @@ sudo apt-get install libopenblas-dev
 
 ### Download bitcoin helper page
 
-TODO: this is the page that lets you show QR codes from BIP 39 and pass phrases
+This is the page that lets you show QR codes from BIP 39 and pass phrases. Build the project to get a static html file that you can open offline in an airgap device. Or just copy the btc-latest.html file from the repo.
+
+https://github.com/leonsomed/airgap-pi-zero/blob/main/btc-latest.html
 
 ### Create .img
 
