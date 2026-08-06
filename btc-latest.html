@@ -1,0 +1,2967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compact SeedQR Tool</title>
+  <style>*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}/*
+! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com
+*//*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-feature-settings: normal; /* 5 */
+  font-variation-settings: normal; /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  font-size: 1em; /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  letter-spacing: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+.fixed {
+  position: fixed;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.inset-0 {
+  inset: 0px;
+}
+.right-3 {
+  right: 0.75rem;
+}
+.top-2 {
+  top: 0.5rem;
+}
+.z-50 {
+  z-index: 50;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.hidden {
+  display: none;
+}
+.w-full {
+  width: 100%;
+}
+.max-w-lg {
+  max-width: 32rem;
+}
+.max-w-md {
+  max-width: 28rem;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.rounded-md {
+  border-radius: 0.375rem;
+}
+.border {
+  border-width: 1px;
+}
+.border-\[\#f99925\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(249 153 37 / var(--tw-border-opacity, 1));
+}
+.border-slate-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(71 85 105 / var(--tw-border-opacity, 1));
+}
+.border-slate-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(51 65 85 / var(--tw-border-opacity, 1));
+}
+.bg-\[\#00151a\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 21 26 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#001f26\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 31 38 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#002a32\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 42 50 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#f99925\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 153 37 / var(--tw-bg-opacity, 1));
+}
+.bg-black\/70 {
+  background-color: rgb(0 0 0 / 0.7);
+}
+.bg-transparent {
+  background-color: transparent;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.pr-8 {
+  padding-right: 2rem;
+}
+.text-center {
+  text-align: center;
+}
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-\[11px\] {
+  font-size: 11px;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-normal {
+  font-weight: 400;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.leading-none {
+  line-height: 1;
+}
+.leading-snug {
+  line-height: 1.375;
+}
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+.text-\[\#00151a\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 21 26 / var(--tw-text-opacity, 1));
+}
+.text-\[\#f99925\] {
+  --tw-text-opacity: 1;
+  color: rgb(249 153 37 / var(--tw-text-opacity, 1));
+}
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity, 1));
+}
+.text-slate-100 {
+  --tw-text-opacity: 1;
+  color: rgb(241 245 249 / var(--tw-text-opacity, 1));
+}
+.text-slate-300 {
+  --tw-text-opacity: 1;
+  color: rgb(203 213 225 / var(--tw-text-opacity, 1));
+}
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+}
+.text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+}
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 20% 0%, #1a3a42 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, #0d2a30 0%, transparent 45%),
+    #00151a;
+  min-height: 100vh;
+}
+
+.placeholder\:text-slate-600::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-\[\#f99925\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(249 153 37 / var(--tw-text-opacity, 1));
+}
+
+.focus\:border-\[\#f99925\]:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(249 153 37 / var(--tw-border-opacity, 1));
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:ring-1:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-\[\#f99925\]:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(249 153 37 / var(--tw-ring-opacity, 1));
+}
+
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
+}
+
+.disabled\:opacity-40:disabled {
+  opacity: 0.4;
+}
+
+@media (min-width: 640px) {
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.\[\&_canvas\]\:max-w-full canvas {
+  max-width: 100%;
+}</style>
+</head>
+<body class="text-slate-100 antialiased">
+  <main class="mx-auto max-w-lg px-4 py-10">
+    <h1 class="font-serif text-3xl tracking-tight text-[#f99925]">SeedQR</h1>
+    <p class="mt-2 text-sm text-slate-400">
+      Enter a 12- or 24-word BIP39 mnemonic. Reveal Compact SeedQR and fingerprints.
+    </p>
+
+    <label class="mt-8 block text-sm font-medium text-slate-300" for="mnemonic">
+      Seed phrase
+    </label>
+    <textarea
+      id="mnemonic"
+      rows="4"
+      spellcheck="false"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      placeholder="twelve or twenty four words …"
+      class="mt-1 w-full rounded-md border border-slate-600 bg-[#002a32] px-3 py-2 font-mono text-sm text-slate-100 placeholder:text-slate-600 focus:border-[#f99925] focus:outline-none focus:ring-1 focus:ring-[#f99925]"
+    ></textarea>
+    <p id="mnemonicError" class="mt-1 hidden text-sm text-red-400"></p>
+    <p id="libStatus" class="mt-1 text-xs text-slate-500">Loading crypto libraries…</p>
+
+    <label class="mt-5 block text-sm font-medium text-slate-300" for="passphrase">
+      BIP39 passphrase <span class="font-normal text-slate-500">(optional)</span>
+    </label>
+    <textarea
+      id="passphrase"
+      rows="4"
+      autocomplete="off"
+      spellcheck="false"
+      autocorrect="off"
+      autocapitalize="off"
+      class="mt-1 w-full rounded-md border border-slate-600 bg-[#002a32] px-3 py-2 font-mono text-sm text-slate-100 focus:border-[#f99925] focus:outline-none focus:ring-1 focus:ring-[#f99925]"
+    ></textarea>
+
+    <section class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div class="rounded-md border border-slate-700 bg-[#001f26] p-4">
+        <h2 class="text-xs uppercase tracking-wide text-slate-500">Without passphrase</h2>
+        <p class="mt-2 text-xs text-slate-400">BIP32 fingerprint</p>
+        <p id="fpPlain" class="mt-1 font-mono text-lg text-[#f99925]">—</p>
+        <button
+          id="btnQrPlain"
+          type="button"
+          disabled
+          class="mt-4 w-full rounded-md bg-[#f99925] px-3 py-2 text-sm font-medium text-[#00151a] disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Reveal SeedQR
+        </button>
+      </div>
+
+      <div class="rounded-md border border-slate-700 bg-[#001f26] p-4">
+        <h2 class="text-xs uppercase tracking-wide text-slate-500">With passphrase</h2>
+        <p class="mt-2 text-xs text-slate-400">BIP32 fingerprint</p>
+        <p id="fpPass" class="mt-1 font-mono text-lg text-[#f99925]">—</p>
+        <button
+          id="btnQrPass"
+          type="button"
+          disabled
+          class="mt-4 w-full rounded-md border border-[#f99925] bg-transparent px-3 py-2 text-sm font-medium text-[#f99925] disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Reveal passphrase QR
+        </button>
+        <p class="mt-2 text-[11px] leading-snug text-slate-500">
+          This QR encodes the passphrase as plain text.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div
+    id="modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="relative w-full max-w-md rounded-lg border border-slate-600 bg-[#00151a] p-5 shadow-xl">
+      <button
+        id="modalClose"
+        type="button"
+        class="absolute right-3 top-2 text-2xl leading-none text-slate-400 hover:text-[#f99925]"
+        aria-label="Close"
+      >
+        &times;
+      </button>
+      <h3 id="modalTitle" class="pr-8 text-sm font-medium text-slate-300"></h3>
+      <p id="modalFp" class="mt-1 font-mono text-xs text-[#f99925]"></p>
+      <div id="modalQr" class="mt-4 flex justify-center [&_canvas]:max-w-full"></div>
+      <p id="modalNote" class="mt-3 text-center text-[11px] text-slate-500"></p>
+    </div>
+  </div>
+
+  <script>(()=>{var Ro=Object.create;var Ot=Object.defineProperty;var Uo=Object.getOwnPropertyDescriptor;var Po=Object.getOwnPropertyNames;var _o=Object.getPrototypeOf,Ho=Object.prototype.hasOwnProperty;var U=(t,e)=>()=>{try{return e||t((e={exports:{}}).exports,e),e.exports}catch(r){throw e=0,r}},qo=(t,e)=>{for(var r in e)Ot(t,r,{get:e[r],enumerable:!0})},Mo=(t,e,r,n)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of Po(e))!Ho.call(t,o)&&o!==r&&Ot(t,o,{get:()=>e[o],enumerable:!(n=Uo(e,o))||n.enumerable});return t};var Oo=(t,e,r)=>(r=t!=null?Ro(_o(t)):{},Mo(e||!t||!t.__esModule?Ot(r,"default",{value:t,enumerable:!0}):r,t));var Ln=U((xc,Tn)=>{Tn.exports=function(){return typeof Promise=="function"&&Promise.prototype&&Promise.prototype.then}});var Be=U(He=>{var hr,fs=[0,26,44,70,100,134,172,196,242,292,346,404,466,532,581,655,733,815,901,991,1085,1156,1258,1364,1474,1588,1706,1828,1921,2051,2185,2323,2465,2611,2761,2876,3034,3196,3362,3532,3706];He.getSymbolSize=function(e){if(!e)throw new Error('"version" cannot be null or undefined');if(e<1||e>40)throw new Error('"version" should be in range from 1 to 40');return e*4+17};He.getSymbolTotalCodewords=function(e){return fs[e]};He.getBCHDigit=function(t){let e=0;for(;t!==0;)e++,t>>>=1;return e};He.setToSJISFunction=function(e){if(typeof e!="function")throw new Error('"toSJISFunc" is not a valid function.');hr=e};He.isKanjiModeEnabled=function(){return typeof hr<"u"};He.toSJIS=function(e){return hr(e)}});var kt=U(J=>{J.L={bit:1};J.M={bit:0};J.Q={bit:3};J.H={bit:2};function ds(t){if(typeof t!="string")throw new Error("Param is not a string");switch(t.toLowerCase()){case"l":case"low":return J.L;case"m":case"medium":return J.M;case"q":case"quartile":return J.Q;case"h":case"high":return J.H;default:throw new Error("Unknown EC Level: "+t)}}J.isValid=function(e){return e&&typeof e.bit<"u"&&e.bit>=0&&e.bit<4};J.from=function(e,r){if(J.isValid(e))return e;try{return ds(e)}catch{return r}}});var Un=U((Bc,Rn)=>{function Nn(){this.buffer=[],this.length=0}Nn.prototype={get:function(t){let e=Math.floor(t/8);return(this.buffer[e]>>>7-t%8&1)===1},put:function(t,e){for(let r=0;r<e;r++)this.putBit((t>>>e-r-1&1)===1)},getLengthInBits:function(){return this.length},putBit:function(t){let e=Math.floor(this.length/8);this.buffer.length<=e&&this.buffer.push(0),t&&(this.buffer[e]|=128>>>this.length%8),this.length++}};Rn.exports=Nn});var _n=U((Ac,Pn)=>{function nt(t){if(!t||t<1)throw new Error("BitMatrix size must be defined and greater than 0");this.size=t,this.data=new Uint8Array(t*t),this.reservedBit=new Uint8Array(t*t)}nt.prototype.set=function(t,e,r,n){let o=t*this.size+e;this.data[o]=r,n&&(this.reservedBit[o]=!0)};nt.prototype.get=function(t,e){return this.data[t*this.size+e]};nt.prototype.xor=function(t,e,r){this.data[t*this.size+e]^=r};nt.prototype.isReserved=function(t,e){return this.reservedBit[t*this.size+e]};Pn.exports=nt});var Hn=U(It=>{var hs=Be().getSymbolSize;It.getRowColCoords=function(e){if(e===1)return[];let r=Math.floor(e/7)+2,n=hs(e),o=n===145?26:Math.ceil((n-13)/(2*r-2))*2,i=[n-7];for(let s=1;s<r-1;s++)i[s]=i[s-1]-o;return i.push(6),i.reverse()};It.getPositions=function(e){let r=[],n=It.getRowColCoords(e),o=n.length;for(let i=0;i<o;i++)for(let s=0;s<o;s++)i===0&&s===0||i===0&&s===o-1||i===o-1&&s===0||r.push([n[i],n[s]]);return r}});var On=U(Mn=>{var ps=Be().getSymbolSize,qn=7;Mn.getPositions=function(e){let r=ps(e);return[[0,0],[r-qn,0],[0,r-qn]]}});var Kn=U(_=>{_.Patterns={PATTERN000:0,PATTERN001:1,PATTERN010:2,PATTERN011:3,PATTERN100:4,PATTERN101:5,PATTERN110:6,PATTERN111:7};var qe={N1:3,N2:3,N3:40,N4:10};_.isValid=function(e){return e!=null&&e!==""&&!isNaN(e)&&e>=0&&e<=7};_.from=function(e){return _.isValid(e)?parseInt(e,10):void 0};_.getPenaltyN1=function(e){let r=e.size,n=0,o=0,i=0,s=null,a=null;for(let c=0;c<r;c++){o=i=0,s=a=null;for(let l=0;l<r;l++){let f=e.get(c,l);f===s?o++:(o>=5&&(n+=qe.N1+(o-5)),s=f,o=1),f=e.get(l,c),f===a?i++:(i>=5&&(n+=qe.N1+(i-5)),a=f,i=1)}o>=5&&(n+=qe.N1+(o-5)),i>=5&&(n+=qe.N1+(i-5))}return n};_.getPenaltyN2=function(e){let r=e.size,n=0;for(let o=0;o<r-1;o++)for(let i=0;i<r-1;i++){let s=e.get(o,i)+e.get(o,i+1)+e.get(o+1,i)+e.get(o+1,i+1);(s===4||s===0)&&n++}return n*qe.N2};_.getPenaltyN3=function(e){let r=e.size,n=0,o=0,i=0;for(let s=0;s<r;s++){o=i=0;for(let a=0;a<r;a++)o=o<<1&2047|e.get(s,a),a>=10&&(o===1488||o===93)&&n++,i=i<<1&2047|e.get(a,s),a>=10&&(i===1488||i===93)&&n++}return n*qe.N3};_.getPenaltyN4=function(e){let r=0,n=e.data.length;for(let i=0;i<n;i++)r+=e.data[i];return Math.abs(Math.ceil(r*100/n/5)-10)*qe.N4};function gs(t,e,r){switch(t){case _.Patterns.PATTERN000:return(e+r)%2===0;case _.Patterns.PATTERN001:return e%2===0;case _.Patterns.PATTERN010:return r%3===0;case _.Patterns.PATTERN011:return(e+r)%3===0;case _.Patterns.PATTERN100:return(Math.floor(e/2)+Math.floor(r/3))%2===0;case _.Patterns.PATTERN101:return e*r%2+e*r%3===0;case _.Patterns.PATTERN110:return(e*r%2+e*r%3)%2===0;case _.Patterns.PATTERN111:return(e*r%3+(e+r)%2)%2===0;default:throw new Error("bad maskPattern:"+t)}}_.applyMask=function(e,r){let n=r.size;for(let o=0;o<n;o++)for(let i=0;i<n;i++)r.isReserved(i,o)||r.xor(i,o,gs(e,i,o))};_.getBestMask=function(e,r){let n=Object.keys(_.Patterns).length,o=0,i=1/0;for(let s=0;s<n;s++){r(s),_.applyMask(s,e);let a=_.getPenaltyN1(e)+_.getPenaltyN2(e)+_.getPenaltyN3(e)+_.getPenaltyN4(e);_.applyMask(s,e),a<i&&(i=a,o=s)}return o}});var gr=U(pr=>{var Ae=kt(),Tt=[1,1,1,1,1,1,1,1,1,1,2,2,1,2,2,4,1,2,4,4,2,4,4,4,2,4,6,5,2,4,6,6,2,5,8,8,4,5,8,8,4,5,8,11,4,8,10,11,4,9,12,16,4,9,16,16,6,10,12,18,6,10,17,16,6,11,16,19,6,13,18,21,7,14,21,25,8,16,20,25,8,17,23,25,9,17,23,34,9,18,25,30,10,20,27,32,12,21,29,35,12,23,34,37,12,25,34,40,13,26,35,42,14,28,38,45,15,29,40,48,16,31,43,51,17,33,45,54,18,35,48,57,19,37,51,60,19,38,53,63,20,40,56,66,21,43,59,70,22,45,62,74,24,47,65,77,25,49,68,81],Lt=[7,10,13,17,10,16,22,28,15,26,36,44,20,36,52,64,26,48,72,88,36,64,96,112,40,72,108,130,48,88,132,156,60,110,160,192,72,130,192,224,80,150,224,264,96,176,260,308,104,198,288,352,120,216,320,384,132,240,360,432,144,280,408,480,168,308,448,532,180,338,504,588,196,364,546,650,224,416,600,700,224,442,644,750,252,476,690,816,270,504,750,900,300,560,810,960,312,588,870,1050,336,644,952,1110,360,700,1020,1200,390,728,1050,1260,420,784,1140,1350,450,812,1200,1440,480,868,1290,1530,510,924,1350,1620,540,980,1440,1710,570,1036,1530,1800,570,1064,1590,1890,600,1120,1680,1980,630,1204,1770,2100,660,1260,1860,2220,720,1316,1950,2310,750,1372,2040,2430];pr.getBlocksCount=function(e,r){switch(r){case Ae.L:return Tt[(e-1)*4+0];case Ae.M:return Tt[(e-1)*4+1];case Ae.Q:return Tt[(e-1)*4+2];case Ae.H:return Tt[(e-1)*4+3];default:return}};pr.getTotalCodewordsCount=function(e,r){switch(r){case Ae.L:return Lt[(e-1)*4+0];case Ae.M:return Lt[(e-1)*4+1];case Ae.Q:return Lt[(e-1)*4+2];case Ae.H:return Lt[(e-1)*4+3];default:return}}});var Dn=U(Rt=>{var ot=new Uint8Array(512),Nt=new Uint8Array(256);(function(){let e=1;for(let r=0;r<255;r++)ot[r]=e,Nt[e]=r,e<<=1,e&256&&(e^=285);for(let r=255;r<512;r++)ot[r]=ot[r-255]})();Rt.log=function(e){if(e<1)throw new Error("log("+e+")");return Nt[e]};Rt.exp=function(e){return ot[e]};Rt.mul=function(e,r){return e===0||r===0?0:ot[Nt[e]+Nt[r]]}});var zn=U(it=>{var mr=Dn();it.mul=function(e,r){let n=new Uint8Array(e.length+r.length-1);for(let o=0;o<e.length;o++)for(let i=0;i<r.length;i++)n[o+i]^=mr.mul(e[o],r[i]);return n};it.mod=function(e,r){let n=new Uint8Array(e);for(;n.length-r.length>=0;){let o=n[0];for(let s=0;s<r.length;s++)n[s]^=mr.mul(r[s],o);let i=0;for(;i<n.length&&n[i]===0;)i++;n=n.slice(i)}return n};it.generateECPolynomial=function(e){let r=new Uint8Array([1]);for(let n=0;n<e;n++)r=it.mul(r,new Uint8Array([1,mr.exp(n)]));return r}});var Vn=U((Nc,jn)=>{var $n=zn();function br(t){this.genPoly=void 0,this.degree=t,this.degree&&this.initialize(this.degree)}br.prototype.initialize=function(e){this.degree=e,this.genPoly=$n.generateECPolynomial(this.degree)};br.prototype.encode=function(e){if(!this.genPoly)throw new Error("Encoder not initialized");let r=new Uint8Array(e.length+this.degree);r.set(e);let n=$n.mod(r,this.genPoly),o=this.degree-n.length;if(o>0){let i=new Uint8Array(this.degree);return i.set(n,o),i}return n};jn.exports=br});var yr=U(Gn=>{Gn.isValid=function(e){return!isNaN(e)&&e>=1&&e<=40}});var wr=U(le=>{var Yn="[0-9]+",ms="[A-Z $%*+\\-./:]+",st="(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+";st=st.replace(/u/g,"\\u");var bs="(?:(?![A-Z0-9 $%*+\\-./:]|"+st+`)(?:.|[\r
+]))+`;le.KANJI=new RegExp(st,"g");le.BYTE_KANJI=new RegExp("[^A-Z0-9 $%*+\\-./:]+","g");le.BYTE=new RegExp(bs,"g");le.NUMERIC=new RegExp(Yn,"g");le.ALPHANUMERIC=new RegExp(ms,"g");var ys=new RegExp("^"+st+"$"),ws=new RegExp("^"+Yn+"$"),xs=new RegExp("^[A-Z0-9 $%*+\\-./:]+$");le.testKanji=function(e){return ys.test(e)};le.testNumeric=function(e){return ws.test(e)};le.testAlphanumeric=function(e){return xs.test(e)}});var Se=U(O=>{var Es=yr(),xr=wr();O.NUMERIC={id:"Numeric",bit:1,ccBits:[10,12,14]};O.ALPHANUMERIC={id:"Alphanumeric",bit:2,ccBits:[9,11,13]};O.BYTE={id:"Byte",bit:4,ccBits:[8,16,16]};O.KANJI={id:"Kanji",bit:8,ccBits:[8,10,12]};O.MIXED={bit:-1};O.getCharCountIndicator=function(e,r){if(!e.ccBits)throw new Error("Invalid mode: "+e);if(!Es.isValid(r))throw new Error("Invalid version: "+r);return r>=1&&r<10?e.ccBits[0]:r<27?e.ccBits[1]:e.ccBits[2]};O.getBestModeForData=function(e){return xr.testNumeric(e)?O.NUMERIC:xr.testAlphanumeric(e)?O.ALPHANUMERIC:xr.testKanji(e)?O.KANJI:O.BYTE};O.toString=function(e){if(e&&e.id)return e.id;throw new Error("Invalid mode")};O.isValid=function(e){return e&&e.bit&&e.ccBits};function vs(t){if(typeof t!="string")throw new Error("Param is not a string");switch(t.toLowerCase()){case"numeric":return O.NUMERIC;case"alphanumeric":return O.ALPHANUMERIC;case"kanji":return O.KANJI;case"byte":return O.BYTE;default:throw new Error("Unknown mode: "+t)}}O.from=function(e,r){if(O.isValid(e))return e;try{return vs(e)}catch{return r}}});var Jn=U(Me=>{var Ut=Be(),Bs=gr(),Zn=kt(),Ce=Se(),Er=yr(),Fn=7973,Wn=Ut.getBCHDigit(Fn);function As(t,e,r){for(let n=1;n<=40;n++)if(e<=Me.getCapacity(n,r,t))return n}function Qn(t,e){return Ce.getCharCountIndicator(t,e)+4}function Ss(t,e){let r=0;return t.forEach(function(n){let o=Qn(n.mode,e);r+=o+n.getBitsLength()}),r}function Cs(t,e){for(let r=1;r<=40;r++)if(Ss(t,r)<=Me.getCapacity(r,e,Ce.MIXED))return r}Me.from=function(e,r){return Er.isValid(e)?parseInt(e,10):r};Me.getCapacity=function(e,r,n){if(!Er.isValid(e))throw new Error("Invalid QR Code version");typeof n>"u"&&(n=Ce.BYTE);let o=Ut.getSymbolTotalCodewords(e),i=Bs.getTotalCodewordsCount(e,r),s=(o-i)*8;if(n===Ce.MIXED)return s;let a=s-Qn(n,e);switch(n){case Ce.NUMERIC:return Math.floor(a/10*3);case Ce.ALPHANUMERIC:return Math.floor(a/11*2);case Ce.KANJI:return Math.floor(a/13);case Ce.BYTE:default:return Math.floor(a/8)}};Me.getBestVersionForData=function(e,r){let n,o=Zn.from(r,Zn.M);if(Array.isArray(e)){if(e.length>1)return Cs(e,o);if(e.length===0)return 1;n=e[0]}else n=e;return As(n.mode,n.getLength(),o)};Me.getEncodedBits=function(e){if(!Er.isValid(e)||e<7)throw new Error("Invalid QR Code version");let r=e<<12;for(;Ut.getBCHDigit(r)-Wn>=0;)r^=Fn<<Ut.getBCHDigit(r)-Wn;return e<<12|r}});var ro=U(to=>{var vr=Be(),eo=1335,ks=21522,Xn=vr.getBCHDigit(eo);to.getEncodedBits=function(e,r){let n=e.bit<<3|r,o=n<<10;for(;vr.getBCHDigit(o)-Xn>=0;)o^=eo<<vr.getBCHDigit(o)-Xn;return(n<<10|o)^ks}});var oo=U((qc,no)=>{var Is=Se();function Ye(t){this.mode=Is.NUMERIC,this.data=t.toString()}Ye.getBitsLength=function(e){return 10*Math.floor(e/3)+(e%3?e%3*3+1:0)};Ye.prototype.getLength=function(){return this.data.length};Ye.prototype.getBitsLength=function(){return Ye.getBitsLength(this.data.length)};Ye.prototype.write=function(e){let r,n,o;for(r=0;r+3<=this.data.length;r+=3)n=this.data.substr(r,3),o=parseInt(n,10),e.put(o,10);let i=this.data.length-r;i>0&&(n=this.data.substr(r),o=parseInt(n,10),e.put(o,i*3+1))};no.exports=Ye});var so=U((Mc,io)=>{var Ts=Se(),Br=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"," ","$","%","*","+","-",".","/",":"];function Ze(t){this.mode=Ts.ALPHANUMERIC,this.data=t}Ze.getBitsLength=function(e){return 11*Math.floor(e/2)+6*(e%2)};Ze.prototype.getLength=function(){return this.data.length};Ze.prototype.getBitsLength=function(){return Ze.getBitsLength(this.data.length)};Ze.prototype.write=function(e){let r;for(r=0;r+2<=this.data.length;r+=2){let n=Br.indexOf(this.data[r])*45;n+=Br.indexOf(this.data[r+1]),e.put(n,11)}this.data.length%2&&e.put(Br.indexOf(this.data[r]),6)};io.exports=Ze});var co=U((Oc,ao)=>{var Ls=Se();function We(t){this.mode=Ls.BYTE,typeof t=="string"?this.data=new TextEncoder().encode(t):this.data=new Uint8Array(t)}We.getBitsLength=function(e){return e*8};We.prototype.getLength=function(){return this.data.length};We.prototype.getBitsLength=function(){return We.getBitsLength(this.data.length)};We.prototype.write=function(t){for(let e=0,r=this.data.length;e<r;e++)t.put(this.data[e],8)};ao.exports=We});var uo=U((Kc,lo)=>{var Ns=Se(),Rs=Be();function Fe(t){this.mode=Ns.KANJI,this.data=t}Fe.getBitsLength=function(e){return e*13};Fe.prototype.getLength=function(){return this.data.length};Fe.prototype.getBitsLength=function(){return Fe.getBitsLength(this.data.length)};Fe.prototype.write=function(t){let e;for(e=0;e<this.data.length;e++){let r=Rs.toSJIS(this.data[e]);if(r>=33088&&r<=40956)r-=33088;else if(r>=57408&&r<=60351)r-=49472;else throw new Error("Invalid SJIS character: "+this.data[e]+`
+Make sure your charset is UTF-8`);r=(r>>>8&255)*192+(r&255),t.put(r,13)}};lo.exports=Fe});var fo=U((Dc,Ar)=>{"use strict";var at={single_source_shortest_paths:function(t,e,r){var n={},o={};o[e]=0;var i=at.PriorityQueue.make();i.push(e,0);for(var s,a,c,l,f,u,h,w,b;!i.empty();){s=i.pop(),a=s.value,l=s.cost,f=t[a]||{};for(c in f)f.hasOwnProperty(c)&&(u=f[c],h=l+u,w=o[c],b=typeof o[c]>"u",(b||w>h)&&(o[c]=h,i.push(c,h),n[c]=a))}if(typeof r<"u"&&typeof o[r]>"u"){var d=["Could not find a path from ",e," to ",r,"."].join("");throw new Error(d)}return n},extract_shortest_path_from_predecessor_list:function(t,e){for(var r=[],n=e,o;n;)r.push(n),o=t[n],n=t[n];return r.reverse(),r},find_path:function(t,e,r){var n=at.single_source_shortest_paths(t,e,r);return at.extract_shortest_path_from_predecessor_list(n,r)},PriorityQueue:{make:function(t){var e=at.PriorityQueue,r={},n;t=t||{};for(n in e)e.hasOwnProperty(n)&&(r[n]=e[n]);return r.queue=[],r.sorter=t.sorter||e.default_sorter,r},default_sorter:function(t,e){return t.cost-e.cost},push:function(t,e){var r={value:t,cost:e};this.queue.push(r),this.queue.sort(this.sorter)},pop:function(){return this.queue.shift()},empty:function(){return this.queue.length===0}}};typeof Ar<"u"&&(Ar.exports=at)});var xo=U(Qe=>{var N=Se(),go=oo(),mo=so(),bo=co(),yo=uo(),ct=wr(),Pt=Be(),Us=fo();function ho(t){return unescape(encodeURIComponent(t)).length}function lt(t,e,r){let n=[],o;for(;(o=t.exec(r))!==null;)n.push({data:o[0],index:o.index,mode:e,length:o[0].length});return n}function wo(t){let e=lt(ct.NUMERIC,N.NUMERIC,t),r=lt(ct.ALPHANUMERIC,N.ALPHANUMERIC,t),n,o;return Pt.isKanjiModeEnabled()?(n=lt(ct.BYTE,N.BYTE,t),o=lt(ct.KANJI,N.KANJI,t)):(n=lt(ct.BYTE_KANJI,N.BYTE,t),o=[]),e.concat(r,n,o).sort(function(s,a){return s.index-a.index}).map(function(s){return{data:s.data,mode:s.mode,length:s.length}})}function Sr(t,e){switch(e){case N.NUMERIC:return go.getBitsLength(t);case N.ALPHANUMERIC:return mo.getBitsLength(t);case N.KANJI:return yo.getBitsLength(t);case N.BYTE:return bo.getBitsLength(t)}}function Ps(t){return t.reduce(function(e,r){let n=e.length-1>=0?e[e.length-1]:null;return n&&n.mode===r.mode?(e[e.length-1].data+=r.data,e):(e.push(r),e)},[])}function _s(t){let e=[];for(let r=0;r<t.length;r++){let n=t[r];switch(n.mode){case N.NUMERIC:e.push([n,{data:n.data,mode:N.ALPHANUMERIC,length:n.length},{data:n.data,mode:N.BYTE,length:n.length}]);break;case N.ALPHANUMERIC:e.push([n,{data:n.data,mode:N.BYTE,length:n.length}]);break;case N.KANJI:e.push([n,{data:n.data,mode:N.BYTE,length:ho(n.data)}]);break;case N.BYTE:e.push([{data:n.data,mode:N.BYTE,length:ho(n.data)}])}}return e}function Hs(t,e){let r={},n={start:{}},o=["start"];for(let i=0;i<t.length;i++){let s=t[i],a=[];for(let c=0;c<s.length;c++){let l=s[c],f=""+i+c;a.push(f),r[f]={node:l,lastCount:0},n[f]={};for(let u=0;u<o.length;u++){let h=o[u];r[h]&&r[h].node.mode===l.mode?(n[h][f]=Sr(r[h].lastCount+l.length,l.mode)-Sr(r[h].lastCount,l.mode),r[h].lastCount+=l.length):(r[h]&&(r[h].lastCount=l.length),n[h][f]=Sr(l.length,l.mode)+4+N.getCharCountIndicator(l.mode,e))}}o=a}for(let i=0;i<o.length;i++)n[o[i]].end=0;return{map:n,table:r}}function po(t,e){let r,n=N.getBestModeForData(t);if(r=N.from(e,n),r!==N.BYTE&&r.bit<n.bit)throw new Error('"'+t+'" cannot be encoded with mode '+N.toString(r)+`.
+ Suggested mode is: `+N.toString(n));switch(r===N.KANJI&&!Pt.isKanjiModeEnabled()&&(r=N.BYTE),r){case N.NUMERIC:return new go(t);case N.ALPHANUMERIC:return new mo(t);case N.KANJI:return new yo(t);case N.BYTE:return new bo(t)}}Qe.fromArray=function(e){return e.reduce(function(r,n){return typeof n=="string"?r.push(po(n,null)):n.data&&r.push(po(n.data,n.mode)),r},[])};Qe.fromString=function(e,r){let n=wo(e,Pt.isKanjiModeEnabled()),o=_s(n),i=Hs(o,r),s=Us.find_path(i.map,"start","end"),a=[];for(let c=1;c<s.length-1;c++)a.push(i.table[s[c]].node);return Qe.fromArray(Ps(a))};Qe.rawSplit=function(e){return Qe.fromArray(wo(e,Pt.isKanjiModeEnabled()))}});var vo=U(Eo=>{var Ht=Be(),Cr=kt(),qs=Un(),Ms=_n(),Os=Hn(),Ks=On(),Tr=Kn(),Lr=gr(),Ds=Vn(),_t=Jn(),zs=ro(),$s=Se(),kr=xo();function js(t,e){let r=t.size,n=Ks.getPositions(e);for(let o=0;o<n.length;o++){let i=n[o][0],s=n[o][1];for(let a=-1;a<=7;a++)if(!(i+a<=-1||r<=i+a))for(let c=-1;c<=7;c++)s+c<=-1||r<=s+c||(a>=0&&a<=6&&(c===0||c===6)||c>=0&&c<=6&&(a===0||a===6)||a>=2&&a<=4&&c>=2&&c<=4?t.set(i+a,s+c,!0,!0):t.set(i+a,s+c,!1,!0))}}function Vs(t){let e=t.size;for(let r=8;r<e-8;r++){let n=r%2===0;t.set(r,6,n,!0),t.set(6,r,n,!0)}}function Gs(t,e){let r=Os.getPositions(e);for(let n=0;n<r.length;n++){let o=r[n][0],i=r[n][1];for(let s=-2;s<=2;s++)for(let a=-2;a<=2;a++)s===-2||s===2||a===-2||a===2||s===0&&a===0?t.set(o+s,i+a,!0,!0):t.set(o+s,i+a,!1,!0)}}function Ys(t,e){let r=t.size,n=_t.getEncodedBits(e),o,i,s;for(let a=0;a<18;a++)o=Math.floor(a/3),i=a%3+r-8-3,s=(n>>a&1)===1,t.set(o,i,s,!0),t.set(i,o,s,!0)}function Ir(t,e,r){let n=t.size,o=zs.getEncodedBits(e,r),i,s;for(i=0;i<15;i++)s=(o>>i&1)===1,i<6?t.set(i,8,s,!0):i<8?t.set(i+1,8,s,!0):t.set(n-15+i,8,s,!0),i<8?t.set(8,n-i-1,s,!0):i<9?t.set(8,15-i-1+1,s,!0):t.set(8,15-i-1,s,!0);t.set(n-8,8,1,!0)}function Zs(t,e){let r=t.size,n=-1,o=r-1,i=7,s=0;for(let a=r-1;a>0;a-=2)for(a===6&&a--;;){for(let c=0;c<2;c++)if(!t.isReserved(o,a-c)){let l=!1;s<e.length&&(l=(e[s]>>>i&1)===1),t.set(o,a-c,l),i--,i===-1&&(s++,i=7)}if(o+=n,o<0||r<=o){o-=n,n=-n;break}}}function Ws(t,e,r){let n=new qs;r.forEach(function(c){n.put(c.mode.bit,4),n.put(c.getLength(),$s.getCharCountIndicator(c.mode,t)),c.write(n)});let o=Ht.getSymbolTotalCodewords(t),i=Lr.getTotalCodewordsCount(t,e),s=(o-i)*8;for(n.getLengthInBits()+4<=s&&n.put(0,4);n.getLengthInBits()%8!==0;)n.putBit(0);let a=(s-n.getLengthInBits())/8;for(let c=0;c<a;c++)n.put(c%2?17:236,8);return Fs(n,t,e)}function Fs(t,e,r){let n=Ht.getSymbolTotalCodewords(e),o=Lr.getTotalCodewordsCount(e,r),i=n-o,s=Lr.getBlocksCount(e,r),a=n%s,c=s-a,l=Math.floor(n/s),f=Math.floor(i/s),u=f+1,h=l-f,w=new Ds(h),b=0,d=new Array(s),p=new Array(s),g=0,B=new Uint8Array(t.buffer);for(let A=0;A<s;A++){let S=A<c?f:u;d[A]=B.slice(b,b+S),p[A]=w.encode(d[A]),b+=S,g=Math.max(g,S)}let y=new Uint8Array(n),C=0,E,x;for(E=0;E<g;E++)for(x=0;x<s;x++)E<d[x].length&&(y[C++]=d[x][E]);for(E=0;E<h;E++)for(x=0;x<s;x++)y[C++]=p[x][E];return y}function Qs(t,e,r,n){let o;if(Array.isArray(t))o=kr.fromArray(t);else if(typeof t=="string"){let l=e;if(!l){let f=kr.rawSplit(t);l=_t.getBestVersionForData(f,r)}o=kr.fromString(t,l||40)}else throw new Error("Invalid data");let i=_t.getBestVersionForData(o,r);if(!i)throw new Error("The amount of data is too big to be stored in a QR Code");if(!e)e=i;else if(e<i)throw new Error(`
+The chosen QR Code version cannot contain this amount of data.
+Minimum version required to store current data is: `+i+`.
+`);let s=Ws(e,r,o),a=Ht.getSymbolSize(e),c=new Ms(a);return js(c,e),Vs(c),Gs(c,e),Ir(c,r,0),e>=7&&Ys(c,e),Zs(c,s),isNaN(n)&&(n=Tr.getBestMask(c,Ir.bind(null,c,r))),Tr.applyMask(n,c),Ir(c,r,n),{modules:c,version:e,errorCorrectionLevel:r,maskPattern:n,segments:o}}Eo.create=function(e,r){if(typeof e>"u"||e==="")throw new Error("No input text");let n=Cr.M,o,i;return typeof r<"u"&&(n=Cr.from(r.errorCorrectionLevel,Cr.M),o=_t.from(r.version),i=Tr.from(r.maskPattern),r.toSJISFunc&&Ht.setToSJISFunction(r.toSJISFunc)),Qs(e,o,n,i)}});var Nr=U(Oe=>{function Bo(t){if(typeof t=="number"&&(t=t.toString()),typeof t!="string")throw new Error("Color should be defined as hex string");let e=t.slice().replace("#","").split("");if(e.length<3||e.length===5||e.length>8)throw new Error("Invalid hex color: "+t);(e.length===3||e.length===4)&&(e=Array.prototype.concat.apply([],e.map(function(n){return[n,n]}))),e.length===6&&e.push("F","F");let r=parseInt(e.join(""),16);return{r:r>>24&255,g:r>>16&255,b:r>>8&255,a:r&255,hex:"#"+e.slice(0,6).join("")}}Oe.getOptions=function(e){e||(e={}),e.color||(e.color={});let r=typeof e.margin>"u"||e.margin===null||e.margin<0?4:e.margin,n=e.width&&e.width>=21?e.width:void 0,o=e.scale||4;return{width:n,scale:n?4:o,margin:r,color:{dark:Bo(e.color.dark||"#000000ff"),light:Bo(e.color.light||"#ffffffff")},type:e.type,rendererOpts:e.rendererOpts||{}}};Oe.getScale=function(e,r){return r.width&&r.width>=e+r.margin*2?r.width/(e+r.margin*2):r.scale};Oe.getImageWidth=function(e,r){let n=Oe.getScale(e,r);return Math.floor((e+r.margin*2)*n)};Oe.qrToImageData=function(e,r,n){let o=r.modules.size,i=r.modules.data,s=Oe.getScale(o,n),a=Math.floor((o+n.margin*2)*s),c=n.margin*s,l=[n.color.light,n.color.dark];for(let f=0;f<a;f++)for(let u=0;u<a;u++){let h=(f*a+u)*4,w=n.color.light;if(f>=c&&u>=c&&f<a-c&&u<a-c){let b=Math.floor((f-c)/s),d=Math.floor((u-c)/s);w=l[i[b*o+d]?1:0]}e[h++]=w.r,e[h++]=w.g,e[h++]=w.b,e[h]=w.a}}});var Ao=U(qt=>{var Rr=Nr();function Js(t,e,r){t.clearRect(0,0,e.width,e.height),e.style||(e.style={}),e.height=r,e.width=r,e.style.height=r+"px",e.style.width=r+"px"}function Xs(){try{return document.createElement("canvas")}catch{throw new Error("You need to specify a canvas element")}}qt.render=function(e,r,n){let o=n,i=r;typeof o>"u"&&(!r||!r.getContext)&&(o=r,r=void 0),r||(i=Xs()),o=Rr.getOptions(o);let s=Rr.getImageWidth(e.modules.size,o),a=i.getContext("2d"),c=a.createImageData(s,s);return Rr.qrToImageData(c.data,e,o),Js(a,i,s),a.putImageData(c,0,0),i};qt.renderToDataURL=function(e,r,n){let o=n;typeof o>"u"&&(!r||!r.getContext)&&(o=r,r=void 0),o||(o={});let i=qt.render(e,r,o),s=o.type||"image/png",a=o.rendererOpts||{};return i.toDataURL(s,a.quality)}});var ko=U(Co=>{var ea=Nr();function So(t,e){let r=t.a/255,n=e+'="'+t.hex+'"';return r<1?n+" "+e+'-opacity="'+r.toFixed(2).slice(1)+'"':n}function Ur(t,e,r){let n=t+e;return typeof r<"u"&&(n+=" "+r),n}function ta(t,e,r){let n="",o=0,i=!1,s=0;for(let a=0;a<t.length;a++){let c=Math.floor(a%e),l=Math.floor(a/e);!c&&!i&&(i=!0),t[a]?(s++,a>0&&c>0&&t[a-1]||(n+=i?Ur("M",c+r,.5+l+r):Ur("m",o,0),o=0,i=!1),c+1<e&&t[a+1]||(n+=Ur("h",s),s=0)):o++}return n}Co.render=function(e,r,n){let o=ea.getOptions(r),i=e.modules.size,s=e.modules.data,a=i+o.margin*2,c=o.color.light.a?"<path "+So(o.color.light,"fill")+' d="M0 0h'+a+"v"+a+'H0z"/>':"",l="<path "+So(o.color.dark,"stroke")+' d="'+ta(s,i,o.margin)+'"/>',f='viewBox="0 0 '+a+" "+a+'"',h='<svg xmlns="http://www.w3.org/2000/svg" '+(o.width?'width="'+o.width+'" height="'+o.width+'" ':"")+f+' shape-rendering="crispEdges">'+c+l+`</svg>
+`;return typeof n=="function"&&n(null,h),h}});var To=U(ut=>{var ra=Ln(),Pr=vo(),Io=Ao(),na=ko();function _r(t,e,r,n,o){let i=[].slice.call(arguments,1),s=i.length,a=typeof i[s-1]=="function";if(!a&&!ra())throw new Error("Callback required as last argument");if(a){if(s<2)throw new Error("Too few arguments provided");s===2?(o=r,r=e,e=n=void 0):s===3&&(e.getContext&&typeof o>"u"?(o=n,n=void 0):(o=n,n=r,r=e,e=void 0))}else{if(s<1)throw new Error("Too few arguments provided");return s===1?(r=e,e=n=void 0):s===2&&!e.getContext&&(n=r,r=e,e=void 0),new Promise(function(c,l){try{let f=Pr.create(r,n);c(t(f,e,n))}catch(f){l(f)}})}try{let c=Pr.create(r,n);o(null,t(c,e,n))}catch(c){o(c)}}ut.create=Pr.create;ut.toCanvas=_r.bind(null,Io.render);ut.toDataURL=_r.bind(null,Io.renderToDataURL);ut.toString=_r.bind(null,function(t,e,r){return na.render(t,r)})});function Ie(t){if(!Number.isSafeInteger(t)||t<0)throw new Error(`positive integer expected, not ${t}`)}function Ko(t){return t instanceof Uint8Array||t!=null&&typeof t=="object"&&t.constructor.name==="Uint8Array"}function V(t,...e){if(!Ko(t))throw new Error("Uint8Array expected");if(e.length>0&&!e.includes(t.length))throw new Error(`Uint8Array expected of length ${e}, not of length=${t.length}`)}function ht(t){if(typeof t!="function"||typeof t.create!="function")throw new Error("Hash should be wrapped by utils.wrapConstructor");Ie(t.outputLen),Ie(t.blockLen)}function ze(t,e=!0){if(t.destroyed)throw new Error("Hash instance has been destroyed");if(e&&t.finished)throw new Error("Hash#digest() has already been called")}function zr(t,e){V(t);let r=e.outputLen;if(t.length<r)throw new Error(`digestInto() expects output buffer of length at least ${r}`)}var pt=typeof globalThis=="object"&&"crypto"in globalThis?globalThis.crypto:void 0;var oe=t=>new DataView(t.buffer,t.byteOffset,t.byteLength),ee=(t,e)=>t<<32-e|t>>>e,Xe=(t,e)=>t<<e|t>>>32-e>>>0,da=new Uint8Array(new Uint32Array([287454020]).buffer)[0]===68;var Do=Array.from({length:256},(t,e)=>e.toString(16).padStart(2,"0"));function jr(t){V(t);let e="";for(let r=0;r<t.length;r++)e+=Do[t[r]];return e}var ie={_0:48,_9:57,_A:65,_F:70,_a:97,_f:102};function $r(t){if(t>=ie._0&&t<=ie._9)return t-ie._0;if(t>=ie._A&&t<=ie._F)return t-(ie._A-10);if(t>=ie._a&&t<=ie._f)return t-(ie._a-10)}function Vr(t){if(typeof t!="string")throw new Error("hex string expected, got "+typeof t);let e=t.length,r=e/2;if(e%2)throw new Error("padded hex string expected, got unpadded hex of length "+e);let n=new Uint8Array(r);for(let o=0,i=0;o<r;o++,i+=2){let s=$r(t.charCodeAt(i)),a=$r(t.charCodeAt(i+1));if(s===void 0||a===void 0){let c=t[i]+t[i+1];throw new Error('hex string expected, got non-hex character "'+c+'" at index '+i)}n[o]=s*16+a}return n}function Kt(t){if(typeof t!="string")throw new Error(`utf8ToBytes expected string, got ${typeof t}`);return new Uint8Array(new TextEncoder().encode(t))}function he(t){return typeof t=="string"&&(t=Kt(t)),V(t),t}function Te(...t){let e=0;for(let n=0;n<t.length;n++){let o=t[n];V(o),e+=o.length}let r=new Uint8Array(e);for(let n=0,o=0;n<t.length;n++){let i=t[n];r.set(i,o),o+=i.length}return r}var $e=class{clone(){return this._cloneInto()}},zo={}.toString;function Gr(t,e){if(e!==void 0&&zo.call(e)!=="[object Object]")throw new Error("Options should be object or undefined");return Object.assign(t,e)}function je(t){let e=n=>t().update(he(n)).digest(),r=t();return e.outputLen=r.outputLen,e.blockLen=r.blockLen,e.create=()=>t(),e}function Yr(t=32){if(pt&&typeof pt.getRandomValues=="function")return pt.getRandomValues(new Uint8Array(t));throw new Error("crypto.getRandomValues must be defined")}var gt=class extends $e{constructor(e,r){super(),this.finished=!1,this.destroyed=!1,ht(e);let n=he(r);if(this.iHash=e.create(),typeof this.iHash.update!="function")throw new Error("Expected instance of class which extends utils.Hash");this.blockLen=this.iHash.blockLen,this.outputLen=this.iHash.outputLen;let o=this.blockLen,i=new Uint8Array(o);i.set(n.length>o?e.create().update(n).digest():n);for(let s=0;s<i.length;s++)i[s]^=54;this.iHash.update(i),this.oHash=e.create();for(let s=0;s<i.length;s++)i[s]^=106;this.oHash.update(i),i.fill(0)}update(e){return ze(this),this.iHash.update(e),this}digestInto(e){ze(this),V(e,this.outputLen),this.finished=!0,this.iHash.digestInto(e),this.oHash.update(e),this.oHash.digestInto(e),this.destroy()}digest(){let e=new Uint8Array(this.oHash.outputLen);return this.digestInto(e),e}_cloneInto(e){e||(e=Object.create(Object.getPrototypeOf(this),{}));let{oHash:r,iHash:n,finished:o,destroyed:i,blockLen:s,outputLen:a}=this;return e=e,e.finished=o,e.destroyed=i,e.blockLen=s,e.outputLen=a,e.oHash=r._cloneInto(e.oHash),e.iHash=n._cloneInto(e.iHash),e}destroy(){this.destroyed=!0,this.oHash.destroy(),this.iHash.destroy()}},pe=(t,e,r)=>new gt(t,e).update(r).digest();pe.create=(t,e)=>new gt(t,e);function $o(t,e,r,n){ht(t);let o=Gr({dkLen:32,asyncTick:10},n),{c:i,dkLen:s,asyncTick:a}=o;if(Ie(i),Ie(s),Ie(a),i<1)throw new Error("PBKDF2: iterations (c) should be >= 1");let c=he(e),l=he(r),f=new Uint8Array(s),u=pe.create(t,c),h=u._cloneInto().update(l);return{c:i,dkLen:s,asyncTick:a,DK:f,PRF:u,PRFSalt:h}}function jo(t,e,r,n,o){return t.destroy(),e.destroy(),n&&n.destroy(),o.fill(0),r}function Zr(t,e,r,n){let{c:o,dkLen:i,DK:s,PRF:a,PRFSalt:c}=$o(t,e,r,n),l,f=new Uint8Array(4),u=oe(f),h=new Uint8Array(a.outputLen);for(let w=1,b=0;b<i;w++,b+=a.outputLen){let d=s.subarray(b,b+a.outputLen);u.setInt32(0,w,!1),(l=c._cloneInto(l)).update(f).digestInto(h),d.set(h.subarray(0,d.length));for(let p=1;p<o;p++){a._cloneInto(l).update(h).digestInto(h);for(let g=0;g<d.length;g++)d[g]^=h[g]}}return jo(a,c,s,l,h)}function Vo(t,e,r,n){if(typeof t.setBigUint64=="function")return t.setBigUint64(e,r,n);let o=BigInt(32),i=BigInt(4294967295),s=Number(r>>o&i),a=Number(r&i),c=n?4:0,l=n?0:4;t.setUint32(e+c,s,n),t.setUint32(e+l,a,n)}var Wr=(t,e,r)=>t&e^~t&r,Fr=(t,e,r)=>t&e^t&r^e&r,ge=class extends $e{constructor(e,r,n,o){super(),this.blockLen=e,this.outputLen=r,this.padOffset=n,this.isLE=o,this.finished=!1,this.length=0,this.pos=0,this.destroyed=!1,this.buffer=new Uint8Array(e),this.view=oe(this.buffer)}update(e){ze(this);let{view:r,buffer:n,blockLen:o}=this;e=he(e);let i=e.length;for(let s=0;s<i;){let a=Math.min(o-this.pos,i-s);if(a===o){let c=oe(e);for(;o<=i-s;s+=o)this.process(c,s);continue}n.set(e.subarray(s,s+a),this.pos),this.pos+=a,s+=a,this.pos===o&&(this.process(r,0),this.pos=0)}return this.length+=e.length,this.roundClean(),this}digestInto(e){ze(this),zr(e,this),this.finished=!0;let{buffer:r,view:n,blockLen:o,isLE:i}=this,{pos:s}=this;r[s++]=128,this.buffer.subarray(s).fill(0),this.padOffset>o-s&&(this.process(n,0),s=0);for(let u=s;u<o;u++)r[u]=0;Vo(n,o-8,BigInt(this.length*8),i),this.process(n,0);let a=oe(e),c=this.outputLen;if(c%4)throw new Error("_sha2: outputLen should be aligned to 32bit");let l=c/4,f=this.get();if(l>f.length)throw new Error("_sha2: outputLen bigger than state");for(let u=0;u<l;u++)a.setUint32(4*u,f[u],i)}digest(){let{buffer:e,outputLen:r}=this;this.digestInto(e);let n=e.slice(0,r);return this.destroy(),n}_cloneInto(e){e||(e=new this.constructor),e.set(...this.get());let{blockLen:r,buffer:n,length:o,finished:i,destroyed:s,pos:a}=this;return e.length=o,e.pos=a,e.finished=i,e.destroyed=s,o%r&&e.buffer.set(n),e}};var Go=new Uint32Array([1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298]),me=new Uint32Array([1779033703,3144134277,1013904242,2773480762,1359893119,2600822924,528734635,1541459225]),be=new Uint32Array(64),Dt=class extends ge{constructor(){super(64,32,8,!1),this.A=me[0]|0,this.B=me[1]|0,this.C=me[2]|0,this.D=me[3]|0,this.E=me[4]|0,this.F=me[5]|0,this.G=me[6]|0,this.H=me[7]|0}get(){let{A:e,B:r,C:n,D:o,E:i,F:s,G:a,H:c}=this;return[e,r,n,o,i,s,a,c]}set(e,r,n,o,i,s,a,c){this.A=e|0,this.B=r|0,this.C=n|0,this.D=o|0,this.E=i|0,this.F=s|0,this.G=a|0,this.H=c|0}process(e,r){for(let u=0;u<16;u++,r+=4)be[u]=e.getUint32(r,!1);for(let u=16;u<64;u++){let h=be[u-15],w=be[u-2],b=ee(h,7)^ee(h,18)^h>>>3,d=ee(w,17)^ee(w,19)^w>>>10;be[u]=d+be[u-7]+b+be[u-16]|0}let{A:n,B:o,C:i,D:s,E:a,F:c,G:l,H:f}=this;for(let u=0;u<64;u++){let h=ee(a,6)^ee(a,11)^ee(a,25),w=f+h+Wr(a,c,l)+Go[u]+be[u]|0,d=(ee(n,2)^ee(n,13)^ee(n,22))+Fr(n,o,i)|0;f=l,l=c,c=a,a=s+w|0,s=i,i=o,o=n,n=w+d|0}n=n+this.A|0,o=o+this.B|0,i=i+this.C|0,s=s+this.D|0,a=a+this.E|0,c=c+this.F|0,l=l+this.G|0,f=f+this.H|0,this.set(n,o,i,s,a,c,l,f)}roundClean(){be.fill(0)}destroy(){this.set(0,0,0,0,0,0,0,0),this.buffer.fill(0)}};var Le=je(()=>new Dt);var mt=BigInt(4294967295),zt=BigInt(32);function Qr(t,e=!1){return e?{h:Number(t&mt),l:Number(t>>zt&mt)}:{h:Number(t>>zt&mt)|0,l:Number(t&mt)|0}}function Yo(t,e=!1){let r=new Uint32Array(t.length),n=new Uint32Array(t.length);for(let o=0;o<t.length;o++){let{h:i,l:s}=Qr(t[o],e);[r[o],n[o]]=[i,s]}return[r,n]}var Zo=(t,e)=>BigInt(t>>>0)<<zt|BigInt(e>>>0),Wo=(t,e,r)=>t>>>r,Fo=(t,e,r)=>t<<32-r|e>>>r,Qo=(t,e,r)=>t>>>r|e<<32-r,Jo=(t,e,r)=>t<<32-r|e>>>r,Xo=(t,e,r)=>t<<64-r|e>>>r-32,ei=(t,e,r)=>t>>>r-32|e<<64-r,ti=(t,e)=>e,ri=(t,e)=>t,ni=(t,e,r)=>t<<r|e>>>32-r,oi=(t,e,r)=>e<<r|t>>>32-r,ii=(t,e,r)=>e<<r-32|t>>>64-r,si=(t,e,r)=>t<<r-32|e>>>64-r;function ai(t,e,r,n){let o=(e>>>0)+(n>>>0);return{h:t+r+(o/2**32|0)|0,l:o|0}}var ci=(t,e,r)=>(t>>>0)+(e>>>0)+(r>>>0),li=(t,e,r,n)=>e+r+n+(t/2**32|0)|0,ui=(t,e,r,n)=>(t>>>0)+(e>>>0)+(r>>>0)+(n>>>0),fi=(t,e,r,n,o)=>e+r+n+o+(t/2**32|0)|0,di=(t,e,r,n,o)=>(t>>>0)+(e>>>0)+(r>>>0)+(n>>>0)+(o>>>0),hi=(t,e,r,n,o,i)=>e+r+n+o+i+(t/2**32|0)|0;var pi={fromBig:Qr,split:Yo,toBig:Zo,shrSH:Wo,shrSL:Fo,rotrSH:Qo,rotrSL:Jo,rotrBH:Xo,rotrBL:ei,rotr32H:ti,rotr32L:ri,rotlSH:ni,rotlSL:oi,rotlBH:ii,rotlBL:si,add:ai,add3L:ci,add3H:li,add4L:ui,add4H:fi,add5H:hi,add5L:di},k=pi;var[gi,mi]=k.split(["0x428a2f98d728ae22","0x7137449123ef65cd","0xb5c0fbcfec4d3b2f","0xe9b5dba58189dbbc","0x3956c25bf348b538","0x59f111f1b605d019","0x923f82a4af194f9b","0xab1c5ed5da6d8118","0xd807aa98a3030242","0x12835b0145706fbe","0x243185be4ee4b28c","0x550c7dc3d5ffb4e2","0x72be5d74f27b896f","0x80deb1fe3b1696b1","0x9bdc06a725c71235","0xc19bf174cf692694","0xe49b69c19ef14ad2","0xefbe4786384f25e3","0x0fc19dc68b8cd5b5","0x240ca1cc77ac9c65","0x2de92c6f592b0275","0x4a7484aa6ea6e483","0x5cb0a9dcbd41fbd4","0x76f988da831153b5","0x983e5152ee66dfab","0xa831c66d2db43210","0xb00327c898fb213f","0xbf597fc7beef0ee4","0xc6e00bf33da88fc2","0xd5a79147930aa725","0x06ca6351e003826f","0x142929670a0e6e70","0x27b70a8546d22ffc","0x2e1b21385c26c926","0x4d2c6dfc5ac42aed","0x53380d139d95b3df","0x650a73548baf63de","0x766a0abb3c77b2a8","0x81c2c92e47edaee6","0x92722c851482353b","0xa2bfe8a14cf10364","0xa81a664bbc423001","0xc24b8b70d0f89791","0xc76c51a30654be30","0xd192e819d6ef5218","0xd69906245565a910","0xf40e35855771202a","0x106aa07032bbd1b8","0x19a4c116b8d2d0c8","0x1e376c085141ab53","0x2748774cdf8eeb99","0x34b0bcb5e19b48a8","0x391c0cb3c5c95a63","0x4ed8aa4ae3418acb","0x5b9cca4f7763e373","0x682e6ff3d6b2b8a3","0x748f82ee5defb2fc","0x78a5636f43172f60","0x84c87814a1f0ab72","0x8cc702081a6439ec","0x90befffa23631e28","0xa4506cebde82bde9","0xbef9a3f7b2c67915","0xc67178f2e372532b","0xca273eceea26619c","0xd186b8c721c0c207","0xeada7dd6cde0eb1e","0xf57d4f7fee6ed178","0x06f067aa72176fba","0x0a637dc5a2c898a6","0x113f9804bef90dae","0x1b710b35131c471b","0x28db77f523047d84","0x32caab7b40c72493","0x3c9ebe0a15c9bebc","0x431d67c49c100d4c","0x4cc5d4becb3e42b6","0x597f299cfc657e2a","0x5fcb6fab3ad6faec","0x6c44198c4a475817"].map(t=>BigInt(t))),ye=new Uint32Array(80),we=new Uint32Array(80),$t=class extends ge{constructor(){super(128,64,16,!1),this.Ah=1779033703,this.Al=-205731576,this.Bh=-1150833019,this.Bl=-2067093701,this.Ch=1013904242,this.Cl=-23791573,this.Dh=-1521486534,this.Dl=1595750129,this.Eh=1359893119,this.El=-1377402159,this.Fh=-1694144372,this.Fl=725511199,this.Gh=528734635,this.Gl=-79577749,this.Hh=1541459225,this.Hl=327033209}get(){let{Ah:e,Al:r,Bh:n,Bl:o,Ch:i,Cl:s,Dh:a,Dl:c,Eh:l,El:f,Fh:u,Fl:h,Gh:w,Gl:b,Hh:d,Hl:p}=this;return[e,r,n,o,i,s,a,c,l,f,u,h,w,b,d,p]}set(e,r,n,o,i,s,a,c,l,f,u,h,w,b,d,p){this.Ah=e|0,this.Al=r|0,this.Bh=n|0,this.Bl=o|0,this.Ch=i|0,this.Cl=s|0,this.Dh=a|0,this.Dl=c|0,this.Eh=l|0,this.El=f|0,this.Fh=u|0,this.Fl=h|0,this.Gh=w|0,this.Gl=b|0,this.Hh=d|0,this.Hl=p|0}process(e,r){for(let y=0;y<16;y++,r+=4)ye[y]=e.getUint32(r),we[y]=e.getUint32(r+=4);for(let y=16;y<80;y++){let C=ye[y-15]|0,E=we[y-15]|0,x=k.rotrSH(C,E,1)^k.rotrSH(C,E,8)^k.shrSH(C,E,7),A=k.rotrSL(C,E,1)^k.rotrSL(C,E,8)^k.shrSL(C,E,7),S=ye[y-2]|0,q=we[y-2]|0,R=k.rotrSH(S,q,19)^k.rotrBH(S,q,61)^k.shrSH(S,q,6),L=k.rotrSL(S,q,19)^k.rotrBL(S,q,61)^k.shrSL(S,q,6),D=k.add4L(A,L,we[y-7],we[y-16]),j=k.add4H(D,x,R,ye[y-7],ye[y-16]);ye[y]=j|0,we[y]=D|0}let{Ah:n,Al:o,Bh:i,Bl:s,Ch:a,Cl:c,Dh:l,Dl:f,Eh:u,El:h,Fh:w,Fl:b,Gh:d,Gl:p,Hh:g,Hl:B}=this;for(let y=0;y<80;y++){let C=k.rotrSH(u,h,14)^k.rotrSH(u,h,18)^k.rotrBH(u,h,41),E=k.rotrSL(u,h,14)^k.rotrSL(u,h,18)^k.rotrBL(u,h,41),x=u&w^~u&d,A=h&b^~h&p,S=k.add5L(B,E,A,mi[y],we[y]),q=k.add5H(S,g,C,x,gi[y],ye[y]),R=S|0,L=k.rotrSH(n,o,28)^k.rotrBH(n,o,34)^k.rotrBH(n,o,39),D=k.rotrSL(n,o,28)^k.rotrBL(n,o,34)^k.rotrBL(n,o,39),j=n&i^n&a^i&a,re=o&s^o&c^s&c;g=d|0,B=p|0,d=w|0,p=b|0,w=u|0,b=h|0,{h:u,l:h}=k.add(l|0,f|0,q|0,R|0),l=a|0,f=c|0,a=i|0,c=s|0,i=n|0,s=o|0;let m=k.add3L(R,D,re);n=k.add3H(m,q,L,j),o=m|0}({h:n,l:o}=k.add(this.Ah|0,this.Al|0,n|0,o|0)),{h:i,l:s}=k.add(this.Bh|0,this.Bl|0,i|0,s|0),{h:a,l:c}=k.add(this.Ch|0,this.Cl|0,a|0,c|0),{h:l,l:f}=k.add(this.Dh|0,this.Dl|0,l|0,f|0),{h:u,l:h}=k.add(this.Eh|0,this.El|0,u|0,h|0),{h:w,l:b}=k.add(this.Fh|0,this.Fl|0,w|0,b|0),{h:d,l:p}=k.add(this.Gh|0,this.Gl|0,d|0,p|0),{h:g,l:B}=k.add(this.Hh|0,this.Hl|0,g|0,B|0),this.set(n,o,i,s,a,c,l,f,u,h,w,b,d,p,g,B)}roundClean(){ye.fill(0),we.fill(0)}destroy(){this.buffer.fill(0),this.set(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)}};var et=je(()=>new $t);function Ne(t){if(!Number.isSafeInteger(t))throw new Error(`Wrong integer: ${t}`)}function bt(t){return t instanceof Uint8Array||t!=null&&typeof t=="object"&&t.constructor.name==="Uint8Array"}function Gt(...t){let e=i=>i,r=(i,s)=>a=>i(s(a)),n=t.map(i=>i.encode).reduceRight(r,e),o=t.map(i=>i.decode).reduce(r,e);return{encode:n,decode:o}}function Jr(t){return{encode:e=>{if(!Array.isArray(e)||e.length&&typeof e[0]!="number")throw new Error("alphabet.encode input should be an array of numbers");return e.map(r=>{if(r<0||r>=t.length)throw new Error(`Digit index outside alphabet: ${r} (alphabet: ${t.length})`);return t[r]})},decode:e=>{if(!Array.isArray(e)||e.length&&typeof e[0]!="string")throw new Error("alphabet.decode input should be array of strings");return e.map(r=>{if(typeof r!="string")throw new Error(`alphabet.decode: not string element=${r}`);let n=t.indexOf(r);if(n===-1)throw new Error(`Unknown letter: "${r}". Allowed: ${t}`);return n})}}}function Xr(t=""){if(typeof t!="string")throw new Error("join separator should be string");return{encode:e=>{if(!Array.isArray(e)||e.length&&typeof e[0]!="string")throw new Error("join.encode input should be array of strings");for(let r of e)if(typeof r!="string")throw new Error(`join.encode: non-string input=${r}`);return e.join(t)},decode:e=>{if(typeof e!="string")throw new Error("join.decode input should be string");return e.split(t)}}}function bi(t,e="="){if(typeof e!="string")throw new Error("padding chr should be string");return{encode(r){if(!Array.isArray(r)||r.length&&typeof r[0]!="string")throw new Error("padding.encode input should be array of strings");for(let n of r)if(typeof n!="string")throw new Error(`padding.encode: non-string input=${n}`);for(;r.length*t%8;)r.push(e);return r},decode(r){if(!Array.isArray(r)||r.length&&typeof r[0]!="string")throw new Error("padding.encode input should be array of strings");for(let o of r)if(typeof o!="string")throw new Error(`padding.decode: non-string input=${o}`);let n=r.length;if(n*t%8)throw new Error("Invalid padding: string should have whole number of bytes");for(;n>0&&r[n-1]===e;n--)if(!((n-1)*t%8))throw new Error("Invalid padding: string has too much padding");return r.slice(0,n)}}}function jt(t,e,r){if(e<2)throw new Error(`convertRadix: wrong from=${e}, base cannot be less than 2`);if(r<2)throw new Error(`convertRadix: wrong to=${r}, base cannot be less than 2`);if(!Array.isArray(t))throw new Error("convertRadix: data should be array");if(!t.length)return[];let n=0,o=[],i=Array.from(t);for(i.forEach(s=>{if(s<0||s>=e)throw new Error(`Wrong integer: ${s}`)});;){let s=0,a=!0;for(let c=n;c<i.length;c++){let l=i[c],f=e*s+l;if(!Number.isSafeInteger(f)||e*s/e!==s||f-l!==e*s)throw new Error("convertRadix: carry overflow");s=f%r;let u=Math.floor(f/r);if(i[c]=u,!Number.isSafeInteger(u)||u*r+s!==f)throw new Error("convertRadix: carry overflow");if(a)u?a=!1:n=c;else continue}if(o.push(s),a)break}for(let s=0;s<t.length-1&&t[s]===0;s++)o.push(0);return o.reverse()}var en=(t,e)=>e?en(e,t%e):t,yt=(t,e)=>t+(e-en(t,e));function Vt(t,e,r,n){if(!Array.isArray(t))throw new Error("convertRadix2: data should be array");if(e<=0||e>32)throw new Error(`convertRadix2: wrong from=${e}`);if(r<=0||r>32)throw new Error(`convertRadix2: wrong to=${r}`);if(yt(e,r)>32)throw new Error(`convertRadix2: carry overflow from=${e} to=${r} carryBits=${yt(e,r)}`);let o=0,i=0,s=2**r-1,a=[];for(let c of t){if(c>=2**e)throw new Error(`convertRadix2: invalid data word=${c} from=${e}`);if(o=o<<e|c,i+e>32)throw new Error(`convertRadix2: carry overflow pos=${i} from=${e}`);for(i+=e;i>=r;i-=r)a.push((o>>i-r&s)>>>0);o&=2**i-1}if(o=o<<r-i&s,!n&&i>=e)throw new Error("Excess padding");if(!n&&o)throw new Error(`Non-zero padding: ${o}`);return n&&i>0&&a.push(o>>>0),a}function tn(t){return{encode:e=>{if(!bt(e))throw new Error("radix.encode input should be Uint8Array");return jt(Array.from(e),2**8,t)},decode:e=>{if(!Array.isArray(e)||e.length&&typeof e[0]!="number")throw new Error("radix.decode input should be array of numbers");return Uint8Array.from(jt(e,t,2**8))}}}function yi(t,e=!1){if(t<=0||t>32)throw new Error("radix2: bits should be in (0..32]");if(yt(8,t)>32||yt(t,8)>32)throw new Error("radix2: carry overflow");return{encode:r=>{if(!bt(r))throw new Error("radix2.encode input should be Uint8Array");return Vt(Array.from(r),8,t,!e)},decode:r=>{if(!Array.isArray(r)||r.length&&typeof r[0]!="number")throw new Error("radix2.decode input should be array of numbers");return Uint8Array.from(Vt(r,t,8,e))}}}function rn(t,e){if(typeof e!="function")throw new Error("checksum fn should be function");return{encode(r){if(!bt(r))throw new Error("checksum.encode: input should be Uint8Array");let n=e(r).slice(0,t),o=new Uint8Array(r.length+t);return o.set(r),o.set(n,r.length),o},decode(r){if(!bt(r))throw new Error("checksum.decode: input should be Uint8Array");let n=r.slice(0,-t),o=e(n).slice(0,t),i=r.slice(-t);for(let s=0;s<t;s++)if(o[s]!==i[s])throw new Error("Invalid checksum");return n}}}var tt={alphabet:Jr,chain:Gt,checksum:rn,convertRadix:jt,convertRadix2:Vt,radix:tn,radix2:yi,join:Xr,padding:bi};var wi=t=>Gt(tn(58),Jr(t),Xr("")),xi=wi("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz");var nn=t=>Gt(rn(4,e=>t(t(e))),xi);function on(t){if(typeof t!="string")throw new TypeError(`Invalid mnemonic type: ${typeof t}`);return t.normalize("NFKD")}function sn(t){let e=on(t),r=e.split(" ");if(![12,15,18,21,24].includes(r.length))throw new Error("Invalid mnemonic");return{nfkd:e,words:r}}function Ei(t){V(t,16,20,24,28,32)}var vi=t=>{let e=8-t.length/4;return new Uint8Array([Le(t)[0]>>e<<e])};function Bi(t){if(!Array.isArray(t)||t.length!==2048||typeof t[0]!="string")throw new Error("Wordlist: expected array of 2048 strings");return t.forEach(e=>{if(typeof e!="string")throw new Error(`Wordlist: non-string element: ${e}`)}),tt.chain(tt.checksum(1,vi),tt.radix2(11,!0),tt.alphabet(t))}function Ai(t,e){let{words:r}=sn(t),n=Bi(e).decode(r);return Ei(n),n}function an(t,e){try{Ai(t,e)}catch{return!1}return!0}var Si=t=>on(`mnemonic${t}`);function Yt(t,e=""){return Zr(et,sn(t).nfkd,Si(e),{c:2048,dkLen:64})}var Zt=`abandon
+ability
+able
+about
+above
+absent
+absorb
+abstract
+absurd
+abuse
+access
+accident
+account
+accuse
+achieve
+acid
+acoustic
+acquire
+across
+act
+action
+actor
+actress
+actual
+adapt
+add
+addict
+address
+adjust
+admit
+adult
+advance
+advice
+aerobic
+affair
+afford
+afraid
+again
+age
+agent
+agree
+ahead
+aim
+air
+airport
+aisle
+alarm
+album
+alcohol
+alert
+alien
+all
+alley
+allow
+almost
+alone
+alpha
+already
+also
+alter
+always
+amateur
+amazing
+among
+amount
+amused
+analyst
+anchor
+ancient
+anger
+angle
+angry
+animal
+ankle
+announce
+annual
+another
+answer
+antenna
+antique
+anxiety
+any
+apart
+apology
+appear
+apple
+approve
+april
+arch
+arctic
+area
+arena
+argue
+arm
+armed
+armor
+army
+around
+arrange
+arrest
+arrive
+arrow
+art
+artefact
+artist
+artwork
+ask
+aspect
+assault
+asset
+assist
+assume
+asthma
+athlete
+atom
+attack
+attend
+attitude
+attract
+auction
+audit
+august
+aunt
+author
+auto
+autumn
+average
+avocado
+avoid
+awake
+aware
+away
+awesome
+awful
+awkward
+axis
+baby
+bachelor
+bacon
+badge
+bag
+balance
+balcony
+ball
+bamboo
+banana
+banner
+bar
+barely
+bargain
+barrel
+base
+basic
+basket
+battle
+beach
+bean
+beauty
+because
+become
+beef
+before
+begin
+behave
+behind
+believe
+below
+belt
+bench
+benefit
+best
+betray
+better
+between
+beyond
+bicycle
+bid
+bike
+bind
+biology
+bird
+birth
+bitter
+black
+blade
+blame
+blanket
+blast
+bleak
+bless
+blind
+blood
+blossom
+blouse
+blue
+blur
+blush
+board
+boat
+body
+boil
+bomb
+bone
+bonus
+book
+boost
+border
+boring
+borrow
+boss
+bottom
+bounce
+box
+boy
+bracket
+brain
+brand
+brass
+brave
+bread
+breeze
+brick
+bridge
+brief
+bright
+bring
+brisk
+broccoli
+broken
+bronze
+broom
+brother
+brown
+brush
+bubble
+buddy
+budget
+buffalo
+build
+bulb
+bulk
+bullet
+bundle
+bunker
+burden
+burger
+burst
+bus
+business
+busy
+butter
+buyer
+buzz
+cabbage
+cabin
+cable
+cactus
+cage
+cake
+call
+calm
+camera
+camp
+can
+canal
+cancel
+candy
+cannon
+canoe
+canvas
+canyon
+capable
+capital
+captain
+car
+carbon
+card
+cargo
+carpet
+carry
+cart
+case
+cash
+casino
+castle
+casual
+cat
+catalog
+catch
+category
+cattle
+caught
+cause
+caution
+cave
+ceiling
+celery
+cement
+census
+century
+cereal
+certain
+chair
+chalk
+champion
+change
+chaos
+chapter
+charge
+chase
+chat
+cheap
+check
+cheese
+chef
+cherry
+chest
+chicken
+chief
+child
+chimney
+choice
+choose
+chronic
+chuckle
+chunk
+churn
+cigar
+cinnamon
+circle
+citizen
+city
+civil
+claim
+clap
+clarify
+claw
+clay
+clean
+clerk
+clever
+click
+client
+cliff
+climb
+clinic
+clip
+clock
+clog
+close
+cloth
+cloud
+clown
+club
+clump
+cluster
+clutch
+coach
+coast
+coconut
+code
+coffee
+coil
+coin
+collect
+color
+column
+combine
+come
+comfort
+comic
+common
+company
+concert
+conduct
+confirm
+congress
+connect
+consider
+control
+convince
+cook
+cool
+copper
+copy
+coral
+core
+corn
+correct
+cost
+cotton
+couch
+country
+couple
+course
+cousin
+cover
+coyote
+crack
+cradle
+craft
+cram
+crane
+crash
+crater
+crawl
+crazy
+cream
+credit
+creek
+crew
+cricket
+crime
+crisp
+critic
+crop
+cross
+crouch
+crowd
+crucial
+cruel
+cruise
+crumble
+crunch
+crush
+cry
+crystal
+cube
+culture
+cup
+cupboard
+curious
+current
+curtain
+curve
+cushion
+custom
+cute
+cycle
+dad
+damage
+damp
+dance
+danger
+daring
+dash
+daughter
+dawn
+day
+deal
+debate
+debris
+decade
+december
+decide
+decline
+decorate
+decrease
+deer
+defense
+define
+defy
+degree
+delay
+deliver
+demand
+demise
+denial
+dentist
+deny
+depart
+depend
+deposit
+depth
+deputy
+derive
+describe
+desert
+design
+desk
+despair
+destroy
+detail
+detect
+develop
+device
+devote
+diagram
+dial
+diamond
+diary
+dice
+diesel
+diet
+differ
+digital
+dignity
+dilemma
+dinner
+dinosaur
+direct
+dirt
+disagree
+discover
+disease
+dish
+dismiss
+disorder
+display
+distance
+divert
+divide
+divorce
+dizzy
+doctor
+document
+dog
+doll
+dolphin
+domain
+donate
+donkey
+donor
+door
+dose
+double
+dove
+draft
+dragon
+drama
+drastic
+draw
+dream
+dress
+drift
+drill
+drink
+drip
+drive
+drop
+drum
+dry
+duck
+dumb
+dune
+during
+dust
+dutch
+duty
+dwarf
+dynamic
+eager
+eagle
+early
+earn
+earth
+easily
+east
+easy
+echo
+ecology
+economy
+edge
+edit
+educate
+effort
+egg
+eight
+either
+elbow
+elder
+electric
+elegant
+element
+elephant
+elevator
+elite
+else
+embark
+embody
+embrace
+emerge
+emotion
+employ
+empower
+empty
+enable
+enact
+end
+endless
+endorse
+enemy
+energy
+enforce
+engage
+engine
+enhance
+enjoy
+enlist
+enough
+enrich
+enroll
+ensure
+enter
+entire
+entry
+envelope
+episode
+equal
+equip
+era
+erase
+erode
+erosion
+error
+erupt
+escape
+essay
+essence
+estate
+eternal
+ethics
+evidence
+evil
+evoke
+evolve
+exact
+example
+excess
+exchange
+excite
+exclude
+excuse
+execute
+exercise
+exhaust
+exhibit
+exile
+exist
+exit
+exotic
+expand
+expect
+expire
+explain
+expose
+express
+extend
+extra
+eye
+eyebrow
+fabric
+face
+faculty
+fade
+faint
+faith
+fall
+false
+fame
+family
+famous
+fan
+fancy
+fantasy
+farm
+fashion
+fat
+fatal
+father
+fatigue
+fault
+favorite
+feature
+february
+federal
+fee
+feed
+feel
+female
+fence
+festival
+fetch
+fever
+few
+fiber
+fiction
+field
+figure
+file
+film
+filter
+final
+find
+fine
+finger
+finish
+fire
+firm
+first
+fiscal
+fish
+fit
+fitness
+fix
+flag
+flame
+flash
+flat
+flavor
+flee
+flight
+flip
+float
+flock
+floor
+flower
+fluid
+flush
+fly
+foam
+focus
+fog
+foil
+fold
+follow
+food
+foot
+force
+forest
+forget
+fork
+fortune
+forum
+forward
+fossil
+foster
+found
+fox
+fragile
+frame
+frequent
+fresh
+friend
+fringe
+frog
+front
+frost
+frown
+frozen
+fruit
+fuel
+fun
+funny
+furnace
+fury
+future
+gadget
+gain
+galaxy
+gallery
+game
+gap
+garage
+garbage
+garden
+garlic
+garment
+gas
+gasp
+gate
+gather
+gauge
+gaze
+general
+genius
+genre
+gentle
+genuine
+gesture
+ghost
+giant
+gift
+giggle
+ginger
+giraffe
+girl
+give
+glad
+glance
+glare
+glass
+glide
+glimpse
+globe
+gloom
+glory
+glove
+glow
+glue
+goat
+goddess
+gold
+good
+goose
+gorilla
+gospel
+gossip
+govern
+gown
+grab
+grace
+grain
+grant
+grape
+grass
+gravity
+great
+green
+grid
+grief
+grit
+grocery
+group
+grow
+grunt
+guard
+guess
+guide
+guilt
+guitar
+gun
+gym
+habit
+hair
+half
+hammer
+hamster
+hand
+happy
+harbor
+hard
+harsh
+harvest
+hat
+have
+hawk
+hazard
+head
+health
+heart
+heavy
+hedgehog
+height
+hello
+helmet
+help
+hen
+hero
+hidden
+high
+hill
+hint
+hip
+hire
+history
+hobby
+hockey
+hold
+hole
+holiday
+hollow
+home
+honey
+hood
+hope
+horn
+horror
+horse
+hospital
+host
+hotel
+hour
+hover
+hub
+huge
+human
+humble
+humor
+hundred
+hungry
+hunt
+hurdle
+hurry
+hurt
+husband
+hybrid
+ice
+icon
+idea
+identify
+idle
+ignore
+ill
+illegal
+illness
+image
+imitate
+immense
+immune
+impact
+impose
+improve
+impulse
+inch
+include
+income
+increase
+index
+indicate
+indoor
+industry
+infant
+inflict
+inform
+inhale
+inherit
+initial
+inject
+injury
+inmate
+inner
+innocent
+input
+inquiry
+insane
+insect
+inside
+inspire
+install
+intact
+interest
+into
+invest
+invite
+involve
+iron
+island
+isolate
+issue
+item
+ivory
+jacket
+jaguar
+jar
+jazz
+jealous
+jeans
+jelly
+jewel
+job
+join
+joke
+journey
+joy
+judge
+juice
+jump
+jungle
+junior
+junk
+just
+kangaroo
+keen
+keep
+ketchup
+key
+kick
+kid
+kidney
+kind
+kingdom
+kiss
+kit
+kitchen
+kite
+kitten
+kiwi
+knee
+knife
+knock
+know
+lab
+label
+labor
+ladder
+lady
+lake
+lamp
+language
+laptop
+large
+later
+latin
+laugh
+laundry
+lava
+law
+lawn
+lawsuit
+layer
+lazy
+leader
+leaf
+learn
+leave
+lecture
+left
+leg
+legal
+legend
+leisure
+lemon
+lend
+length
+lens
+leopard
+lesson
+letter
+level
+liar
+liberty
+library
+license
+life
+lift
+light
+like
+limb
+limit
+link
+lion
+liquid
+list
+little
+live
+lizard
+load
+loan
+lobster
+local
+lock
+logic
+lonely
+long
+loop
+lottery
+loud
+lounge
+love
+loyal
+lucky
+luggage
+lumber
+lunar
+lunch
+luxury
+lyrics
+machine
+mad
+magic
+magnet
+maid
+mail
+main
+major
+make
+mammal
+man
+manage
+mandate
+mango
+mansion
+manual
+maple
+marble
+march
+margin
+marine
+market
+marriage
+mask
+mass
+master
+match
+material
+math
+matrix
+matter
+maximum
+maze
+meadow
+mean
+measure
+meat
+mechanic
+medal
+media
+melody
+melt
+member
+memory
+mention
+menu
+mercy
+merge
+merit
+merry
+mesh
+message
+metal
+method
+middle
+midnight
+milk
+million
+mimic
+mind
+minimum
+minor
+minute
+miracle
+mirror
+misery
+miss
+mistake
+mix
+mixed
+mixture
+mobile
+model
+modify
+mom
+moment
+monitor
+monkey
+monster
+month
+moon
+moral
+more
+morning
+mosquito
+mother
+motion
+motor
+mountain
+mouse
+move
+movie
+much
+muffin
+mule
+multiply
+muscle
+museum
+mushroom
+music
+must
+mutual
+myself
+mystery
+myth
+naive
+name
+napkin
+narrow
+nasty
+nation
+nature
+near
+neck
+need
+negative
+neglect
+neither
+nephew
+nerve
+nest
+net
+network
+neutral
+never
+news
+next
+nice
+night
+noble
+noise
+nominee
+noodle
+normal
+north
+nose
+notable
+note
+nothing
+notice
+novel
+now
+nuclear
+number
+nurse
+nut
+oak
+obey
+object
+oblige
+obscure
+observe
+obtain
+obvious
+occur
+ocean
+october
+odor
+off
+offer
+office
+often
+oil
+okay
+old
+olive
+olympic
+omit
+once
+one
+onion
+online
+only
+open
+opera
+opinion
+oppose
+option
+orange
+orbit
+orchard
+order
+ordinary
+organ
+orient
+original
+orphan
+ostrich
+other
+outdoor
+outer
+output
+outside
+oval
+oven
+over
+own
+owner
+oxygen
+oyster
+ozone
+pact
+paddle
+page
+pair
+palace
+palm
+panda
+panel
+panic
+panther
+paper
+parade
+parent
+park
+parrot
+party
+pass
+patch
+path
+patient
+patrol
+pattern
+pause
+pave
+payment
+peace
+peanut
+pear
+peasant
+pelican
+pen
+penalty
+pencil
+people
+pepper
+perfect
+permit
+person
+pet
+phone
+photo
+phrase
+physical
+piano
+picnic
+picture
+piece
+pig
+pigeon
+pill
+pilot
+pink
+pioneer
+pipe
+pistol
+pitch
+pizza
+place
+planet
+plastic
+plate
+play
+please
+pledge
+pluck
+plug
+plunge
+poem
+poet
+point
+polar
+pole
+police
+pond
+pony
+pool
+popular
+portion
+position
+possible
+post
+potato
+pottery
+poverty
+powder
+power
+practice
+praise
+predict
+prefer
+prepare
+present
+pretty
+prevent
+price
+pride
+primary
+print
+priority
+prison
+private
+prize
+problem
+process
+produce
+profit
+program
+project
+promote
+proof
+property
+prosper
+protect
+proud
+provide
+public
+pudding
+pull
+pulp
+pulse
+pumpkin
+punch
+pupil
+puppy
+purchase
+purity
+purpose
+purse
+push
+put
+puzzle
+pyramid
+quality
+quantum
+quarter
+question
+quick
+quit
+quiz
+quote
+rabbit
+raccoon
+race
+rack
+radar
+radio
+rail
+rain
+raise
+rally
+ramp
+ranch
+random
+range
+rapid
+rare
+rate
+rather
+raven
+raw
+razor
+ready
+real
+reason
+rebel
+rebuild
+recall
+receive
+recipe
+record
+recycle
+reduce
+reflect
+reform
+refuse
+region
+regret
+regular
+reject
+relax
+release
+relief
+rely
+remain
+remember
+remind
+remove
+render
+renew
+rent
+reopen
+repair
+repeat
+replace
+report
+require
+rescue
+resemble
+resist
+resource
+response
+result
+retire
+retreat
+return
+reunion
+reveal
+review
+reward
+rhythm
+rib
+ribbon
+rice
+rich
+ride
+ridge
+rifle
+right
+rigid
+ring
+riot
+ripple
+risk
+ritual
+rival
+river
+road
+roast
+robot
+robust
+rocket
+romance
+roof
+rookie
+room
+rose
+rotate
+rough
+round
+route
+royal
+rubber
+rude
+rug
+rule
+run
+runway
+rural
+sad
+saddle
+sadness
+safe
+sail
+salad
+salmon
+salon
+salt
+salute
+same
+sample
+sand
+satisfy
+satoshi
+sauce
+sausage
+save
+say
+scale
+scan
+scare
+scatter
+scene
+scheme
+school
+science
+scissors
+scorpion
+scout
+scrap
+screen
+script
+scrub
+sea
+search
+season
+seat
+second
+secret
+section
+security
+seed
+seek
+segment
+select
+sell
+seminar
+senior
+sense
+sentence
+series
+service
+session
+settle
+setup
+seven
+shadow
+shaft
+shallow
+share
+shed
+shell
+sheriff
+shield
+shift
+shine
+ship
+shiver
+shock
+shoe
+shoot
+shop
+short
+shoulder
+shove
+shrimp
+shrug
+shuffle
+shy
+sibling
+sick
+side
+siege
+sight
+sign
+silent
+silk
+silly
+silver
+similar
+simple
+since
+sing
+siren
+sister
+situate
+six
+size
+skate
+sketch
+ski
+skill
+skin
+skirt
+skull
+slab
+slam
+sleep
+slender
+slice
+slide
+slight
+slim
+slogan
+slot
+slow
+slush
+small
+smart
+smile
+smoke
+smooth
+snack
+snake
+snap
+sniff
+snow
+soap
+soccer
+social
+sock
+soda
+soft
+solar
+soldier
+solid
+solution
+solve
+someone
+song
+soon
+sorry
+sort
+soul
+sound
+soup
+source
+south
+space
+spare
+spatial
+spawn
+speak
+special
+speed
+spell
+spend
+sphere
+spice
+spider
+spike
+spin
+spirit
+split
+spoil
+sponsor
+spoon
+sport
+spot
+spray
+spread
+spring
+spy
+square
+squeeze
+squirrel
+stable
+stadium
+staff
+stage
+stairs
+stamp
+stand
+start
+state
+stay
+steak
+steel
+stem
+step
+stereo
+stick
+still
+sting
+stock
+stomach
+stone
+stool
+story
+stove
+strategy
+street
+strike
+strong
+struggle
+student
+stuff
+stumble
+style
+subject
+submit
+subway
+success
+such
+sudden
+suffer
+sugar
+suggest
+suit
+summer
+sun
+sunny
+sunset
+super
+supply
+supreme
+sure
+surface
+surge
+surprise
+surround
+survey
+suspect
+sustain
+swallow
+swamp
+swap
+swarm
+swear
+sweet
+swift
+swim
+swing
+switch
+sword
+symbol
+symptom
+syrup
+system
+table
+tackle
+tag
+tail
+talent
+talk
+tank
+tape
+target
+task
+taste
+tattoo
+taxi
+teach
+team
+tell
+ten
+tenant
+tennis
+tent
+term
+test
+text
+thank
+that
+theme
+then
+theory
+there
+they
+thing
+this
+thought
+three
+thrive
+throw
+thumb
+thunder
+ticket
+tide
+tiger
+tilt
+timber
+time
+tiny
+tip
+tired
+tissue
+title
+toast
+tobacco
+today
+toddler
+toe
+together
+toilet
+token
+tomato
+tomorrow
+tone
+tongue
+tonight
+tool
+tooth
+top
+topic
+topple
+torch
+tornado
+tortoise
+toss
+total
+tourist
+toward
+tower
+town
+toy
+track
+trade
+traffic
+tragic
+train
+transfer
+trap
+trash
+travel
+tray
+treat
+tree
+trend
+trial
+tribe
+trick
+trigger
+trim
+trip
+trophy
+trouble
+truck
+true
+truly
+trumpet
+trust
+truth
+try
+tube
+tuition
+tumble
+tuna
+tunnel
+turkey
+turn
+turtle
+twelve
+twenty
+twice
+twin
+twist
+two
+type
+typical
+ugly
+umbrella
+unable
+unaware
+uncle
+uncover
+under
+undo
+unfair
+unfold
+unhappy
+uniform
+unique
+unit
+universe
+unknown
+unlock
+until
+unusual
+unveil
+update
+upgrade
+uphold
+upon
+upper
+upset
+urban
+urge
+usage
+use
+used
+useful
+useless
+usual
+utility
+vacant
+vacuum
+vague
+valid
+valley
+valve
+van
+vanish
+vapor
+various
+vast
+vault
+vehicle
+velvet
+vendor
+venture
+venue
+verb
+verify
+version
+very
+vessel
+veteran
+viable
+vibrant
+vicious
+victory
+video
+view
+village
+vintage
+violin
+virtual
+virus
+visa
+visit
+visual
+vital
+vivid
+vocal
+voice
+void
+volcano
+volume
+vote
+voyage
+wage
+wagon
+wait
+walk
+wall
+walnut
+want
+warfare
+warm
+warrior
+wash
+wasp
+waste
+water
+wave
+way
+wealth
+weapon
+wear
+weasel
+weather
+web
+wedding
+weekend
+weird
+welcome
+west
+wet
+whale
+what
+wheat
+wheel
+when
+where
+whip
+whisper
+wide
+width
+wife
+wild
+will
+win
+window
+wine
+wing
+wink
+winner
+winter
+wire
+wisdom
+wise
+wish
+witness
+wolf
+woman
+wonder
+wood
+wool
+word
+work
+world
+worry
+worth
+wrap
+wreck
+wrestle
+wrist
+write
+wrong
+yard
+year
+yellow
+you
+young
+youth
+zebra
+zero
+zone
+zoo`.split(`
+`);var ki=new Uint8Array([7,4,13,1,10,6,15,3,12,0,9,5,2,14,11,8]),ln=new Uint8Array(new Array(16).fill(0).map((t,e)=>e)),Ii=ln.map(t=>(9*t+5)%16),Ft=[ln],Qt=[Ii];for(let t=0;t<4;t++)for(let e of[Ft,Qt])e.push(e[t].map(r=>ki[r]));var un=[[11,14,15,12,5,8,7,9,11,13,14,15,6,7,9,8],[12,13,11,15,6,9,9,7,12,15,11,13,7,8,7,7],[13,15,14,11,7,7,6,8,13,14,13,12,5,5,6,9],[14,11,12,14,8,6,5,5,15,12,15,14,9,9,8,6],[15,12,13,13,9,5,8,6,14,11,12,11,8,6,5,5]].map(t=>new Uint8Array(t)),Ti=Ft.map((t,e)=>t.map(r=>un[e][r])),Li=Qt.map((t,e)=>t.map(r=>un[e][r])),Ni=new Uint32Array([0,1518500249,1859775393,2400959708,2840853838]),Ri=new Uint32Array([1352829926,1548603684,1836072691,2053994217,0]);function cn(t,e,r,n){return t===0?e^r^n:t===1?e&r|~e&n:t===2?(e|~r)^n:t===3?e&n|r&~n:e^(r|~n)}var wt=new Uint32Array(16),Wt=class extends ge{constructor(){super(64,20,8,!0),this.h0=1732584193,this.h1=-271733879,this.h2=-1732584194,this.h3=271733878,this.h4=-1009589776}get(){let{h0:e,h1:r,h2:n,h3:o,h4:i}=this;return[e,r,n,o,i]}set(e,r,n,o,i){this.h0=e|0,this.h1=r|0,this.h2=n|0,this.h3=o|0,this.h4=i|0}process(e,r){for(let w=0;w<16;w++,r+=4)wt[w]=e.getUint32(r,!0);let n=this.h0|0,o=n,i=this.h1|0,s=i,a=this.h2|0,c=a,l=this.h3|0,f=l,u=this.h4|0,h=u;for(let w=0;w<5;w++){let b=4-w,d=Ni[w],p=Ri[w],g=Ft[w],B=Qt[w],y=Ti[w],C=Li[w];for(let E=0;E<16;E++){let x=Xe(n+cn(w,i,a,l)+wt[g[E]]+d,y[E])+u|0;n=u,u=l,l=Xe(a,10)|0,a=i,i=x}for(let E=0;E<16;E++){let x=Xe(o+cn(b,s,c,f)+wt[B[E]]+p,C[E])+h|0;o=h,h=f,f=Xe(c,10)|0,c=s,s=x}}this.set(this.h1+a+f|0,this.h2+l+h|0,this.h3+u+o|0,this.h4+n+s|0,this.h0+i+c|0)}roundClean(){wt.fill(0)}destroy(){this.destroyed=!0,this.buffer.fill(0),this.set(0,0,0,0,0)}},fn=je(()=>new Wt);var tr={};qo(tr,{abytes:()=>Ve,bitGet:()=>Oi,bitLen:()=>Mi,bitMask:()=>rt,bitSet:()=>Ki,bytesToHex:()=>Re,bytesToNumberBE:()=>ae,bytesToNumberLE:()=>Et,concatBytes:()=>Ge,createHmacDrbg:()=>er,ensureBytes:()=>W,equalBytes:()=>Hi,hexToBytes:()=>Ue,hexToNumber:()=>Xt,isBytes:()=>xe,numberToBytesBE:()=>Ee,numberToBytesLE:()=>vt,numberToHexUnpadded:()=>gn,numberToVarBytesBE:()=>_i,utf8ToBytes:()=>qi,validateObject:()=>ve});var pn=BigInt(0),xt=BigInt(1),Ui=BigInt(2);function xe(t){return t instanceof Uint8Array||t!=null&&typeof t=="object"&&t.constructor.name==="Uint8Array"}function Ve(t){if(!xe(t))throw new Error("Uint8Array expected")}var Pi=Array.from({length:256},(t,e)=>e.toString(16).padStart(2,"0"));function Re(t){Ve(t);let e="";for(let r=0;r<t.length;r++)e+=Pi[t[r]];return e}function gn(t){let e=t.toString(16);return e.length&1?`0${e}`:e}function Xt(t){if(typeof t!="string")throw new Error("hex string expected, got "+typeof t);return BigInt(t===""?"0":`0x${t}`)}var se={_0:48,_9:57,_A:65,_F:70,_a:97,_f:102};function dn(t){if(t>=se._0&&t<=se._9)return t-se._0;if(t>=se._A&&t<=se._F)return t-(se._A-10);if(t>=se._a&&t<=se._f)return t-(se._a-10)}function Ue(t){if(typeof t!="string")throw new Error("hex string expected, got "+typeof t);let e=t.length,r=e/2;if(e%2)throw new Error("padded hex string expected, got unpadded hex of length "+e);let n=new Uint8Array(r);for(let o=0,i=0;o<r;o++,i+=2){let s=dn(t.charCodeAt(i)),a=dn(t.charCodeAt(i+1));if(s===void 0||a===void 0){let c=t[i]+t[i+1];throw new Error('hex string expected, got non-hex character "'+c+'" at index '+i)}n[o]=s*16+a}return n}function ae(t){return Xt(Re(t))}function Et(t){return Ve(t),Xt(Re(Uint8Array.from(t).reverse()))}function Ee(t,e){return Ue(t.toString(16).padStart(e*2,"0"))}function vt(t,e){return Ee(t,e).reverse()}function _i(t){return Ue(gn(t))}function W(t,e,r){let n;if(typeof e=="string")try{n=Ue(e)}catch(i){throw new Error(`${t} must be valid hex string, got "${e}". Cause: ${i}`)}else if(xe(e))n=Uint8Array.from(e);else throw new Error(`${t} must be hex string or Uint8Array`);let o=n.length;if(typeof r=="number"&&o!==r)throw new Error(`${t} expected ${r} bytes, got ${o}`);return n}function Ge(...t){let e=0;for(let n=0;n<t.length;n++){let o=t[n];Ve(o),e+=o.length}let r=new Uint8Array(e);for(let n=0,o=0;n<t.length;n++){let i=t[n];r.set(i,o),o+=i.length}return r}function Hi(t,e){if(t.length!==e.length)return!1;let r=0;for(let n=0;n<t.length;n++)r|=t[n]^e[n];return r===0}function qi(t){if(typeof t!="string")throw new Error(`utf8ToBytes expected string, got ${typeof t}`);return new Uint8Array(new TextEncoder().encode(t))}function Mi(t){let e;for(e=0;t>pn;t>>=xt,e+=1);return e}function Oi(t,e){return t>>BigInt(e)&xt}function Ki(t,e,r){return t|(r?xt:pn)<<BigInt(e)}var rt=t=>(Ui<<BigInt(t-1))-xt,Jt=t=>new Uint8Array(t),hn=t=>Uint8Array.from(t);function er(t,e,r){if(typeof t!="number"||t<2)throw new Error("hashLen must be a number");if(typeof e!="number"||e<2)throw new Error("qByteLen must be a number");if(typeof r!="function")throw new Error("hmacFn must be a function");let n=Jt(t),o=Jt(t),i=0,s=()=>{n.fill(1),o.fill(0),i=0},a=(...u)=>r(o,n,...u),c=(u=Jt())=>{o=a(hn([0]),u),n=a(),u.length!==0&&(o=a(hn([1]),u),n=a())},l=()=>{if(i++>=1e3)throw new Error("drbg: tried 1000 values");let u=0,h=[];for(;u<e;){n=a();let w=n.slice();h.push(w),u+=n.length}return Ge(...h)};return(u,h)=>{s(),c(u);let w;for(;!(w=h(l()));)c();return s(),w}}var Di={bigint:t=>typeof t=="bigint",function:t=>typeof t=="function",boolean:t=>typeof t=="boolean",string:t=>typeof t=="string",stringOrUint8Array:t=>typeof t=="string"||xe(t),isSafeInteger:t=>Number.isSafeInteger(t),array:t=>Array.isArray(t),field:(t,e)=>e.Fp.isValid(t),hash:t=>typeof t=="function"&&Number.isSafeInteger(t.outputLen)};function ve(t,e,r={}){let n=(o,i,s)=>{let a=Di[i];if(typeof a!="function")throw new Error(`Invalid validator "${i}", expected function`);let c=t[o];if(!(s&&c===void 0)&&!a(c,t))throw new Error(`Invalid param ${String(o)}=${c} (${typeof c}), expected ${i}`)};for(let[o,i]of Object.entries(e))n(o,i,!1);for(let[o,i]of Object.entries(r))n(o,i,!0);return t}var K=BigInt(0),M=BigInt(1),Pe=BigInt(2),zi=BigInt(3),rr=BigInt(4),mn=BigInt(5),bn=BigInt(8),$i=BigInt(9),ji=BigInt(16);function $(t,e){let r=t%e;return r>=K?r:e+r}function Vi(t,e,r){if(r<=K||e<K)throw new Error("Expected power/modulo > 0");if(r===M)return K;let n=M;for(;e>K;)e&M&&(n=n*t%r),t=t*t%r,e>>=M;return n}function F(t,e,r){let n=t;for(;e-- >K;)n*=n,n%=r;return n}function Bt(t,e){if(t===K||e<=K)throw new Error(`invert: expected positive integers, got n=${t} mod=${e}`);let r=$(t,e),n=e,o=K,i=M,s=M,a=K;for(;r!==K;){let l=n/r,f=n%r,u=o-s*l,h=i-a*l;n=r,r=f,o=s,i=a,s=u,a=h}if(n!==M)throw new Error("invert: does not exist");return $(o,e)}function Gi(t){let e=(t-M)/Pe,r,n,o;for(r=t-M,n=0;r%Pe===K;r/=Pe,n++);for(o=Pe;o<t&&Vi(o,e,t)!==t-M;o++);if(n===1){let s=(t+M)/rr;return function(c,l){let f=c.pow(l,s);if(!c.eql(c.sqr(f),l))throw new Error("Cannot find square root");return f}}let i=(r+M)/Pe;return function(a,c){if(a.pow(c,e)===a.neg(a.ONE))throw new Error("Cannot find square root");let l=n,f=a.pow(a.mul(a.ONE,o),r),u=a.pow(c,i),h=a.pow(c,r);for(;!a.eql(h,a.ONE);){if(a.eql(h,a.ZERO))return a.ZERO;let w=1;for(let d=a.sqr(h);w<l&&!a.eql(d,a.ONE);w++)d=a.sqr(d);let b=a.pow(f,M<<BigInt(l-w-1));f=a.sqr(b),u=a.mul(u,b),h=a.mul(h,f),l=w}return u}}function Yi(t){if(t%rr===zi){let e=(t+M)/rr;return function(n,o){let i=n.pow(o,e);if(!n.eql(n.sqr(i),o))throw new Error("Cannot find square root");return i}}if(t%bn===mn){let e=(t-mn)/bn;return function(n,o){let i=n.mul(o,Pe),s=n.pow(i,e),a=n.mul(o,s),c=n.mul(n.mul(a,Pe),s),l=n.mul(a,n.sub(c,n.ONE));if(!n.eql(n.sqr(l),o))throw new Error("Cannot find square root");return l}}return t%ji,Gi(t)}var Zi=["create","isValid","is0","neg","inv","sqrt","sqr","eql","add","sub","mul","pow","div","addN","subN","mulN","sqrN"];function nr(t){let e={ORDER:"bigint",MASK:"bigint",BYTES:"isSafeInteger",BITS:"isSafeInteger"},r=Zi.reduce((n,o)=>(n[o]="function",n),e);return ve(t,r)}function Wi(t,e,r){if(r<K)throw new Error("Expected power > 0");if(r===K)return t.ONE;if(r===M)return e;let n=t.ONE,o=e;for(;r>K;)r&M&&(n=t.mul(n,o)),o=t.sqr(o),r>>=M;return n}function Fi(t,e){let r=new Array(e.length),n=e.reduce((i,s,a)=>t.is0(s)?i:(r[a]=i,t.mul(i,s)),t.ONE),o=t.inv(n);return e.reduceRight((i,s,a)=>t.is0(s)?i:(r[a]=t.mul(i,r[a]),t.mul(i,s)),o),r}function or(t,e){let r=e!==void 0?e:t.toString(2).length,n=Math.ceil(r/8);return{nBitLength:r,nByteLength:n}}function yn(t,e,r=!1,n={}){if(t<=K)throw new Error(`Expected Field ORDER > 0, got ${t}`);let{nBitLength:o,nByteLength:i}=or(t,e);if(i>2048)throw new Error("Field lengths over 2048 bytes are not supported");let s=Yi(t),a=Object.freeze({ORDER:t,BITS:o,BYTES:i,MASK:rt(o),ZERO:K,ONE:M,create:c=>$(c,t),isValid:c=>{if(typeof c!="bigint")throw new Error(`Invalid field element: expected bigint, got ${typeof c}`);return K<=c&&c<t},is0:c=>c===K,isOdd:c=>(c&M)===M,neg:c=>$(-c,t),eql:(c,l)=>c===l,sqr:c=>$(c*c,t),add:(c,l)=>$(c+l,t),sub:(c,l)=>$(c-l,t),mul:(c,l)=>$(c*l,t),pow:(c,l)=>Wi(a,c,l),div:(c,l)=>$(c*Bt(l,t),t),sqrN:c=>c*c,addN:(c,l)=>c+l,subN:(c,l)=>c-l,mulN:(c,l)=>c*l,inv:c=>Bt(c,t),sqrt:n.sqrt||(c=>s(a,c)),invertBatch:c=>Fi(a,c),cmov:(c,l,f)=>f?l:c,toBytes:c=>r?vt(c,i):Ee(c,i),fromBytes:c=>{if(c.length!==i)throw new Error(`Fp.fromBytes: expected ${i}, got ${c.length}`);return r?Et(c):ae(c)}});return Object.freeze(a)}function wn(t){if(typeof t!="bigint")throw new Error("field order must be bigint");let e=t.toString(2).length;return Math.ceil(e/8)}function ir(t){let e=wn(t);return e+Math.ceil(e/2)}function xn(t,e,r=!1){let n=t.length,o=wn(e),i=ir(e);if(n<16||n<i||n>1024)throw new Error(`expected ${i}-1024 bytes of input, got ${n}`);let s=r?ae(t):Et(t),a=$(s,e-M)+M;return r?vt(a,o):Ee(a,o)}var Ji=BigInt(0),sr=BigInt(1);function En(t,e){let r=(o,i)=>{let s=i.negate();return o?s:i},n=o=>{let i=Math.ceil(e/o)+1,s=2**(o-1);return{windows:i,windowSize:s}};return{constTimeNegate:r,unsafeLadder(o,i){let s=t.ZERO,a=o;for(;i>Ji;)i&sr&&(s=s.add(a)),a=a.double(),i>>=sr;return s},precomputeWindow(o,i){let{windows:s,windowSize:a}=n(i),c=[],l=o,f=l;for(let u=0;u<s;u++){f=l,c.push(f);for(let h=1;h<a;h++)f=f.add(l),c.push(f);l=f.double()}return c},wNAF(o,i,s){let{windows:a,windowSize:c}=n(o),l=t.ZERO,f=t.BASE,u=BigInt(2**o-1),h=2**o,w=BigInt(o);for(let b=0;b<a;b++){let d=b*c,p=Number(s&u);s>>=w,p>c&&(p-=h,s+=sr);let g=d,B=d+Math.abs(p)-1,y=b%2!==0,C=p<0;p===0?f=f.add(r(y,i[g])):l=l.add(r(C,i[B]))}return{p:l,f}},wNAFCached(o,i,s,a){let c=o._WINDOW_SIZE||1,l=i.get(o);return l||(l=this.precomputeWindow(o,c),c!==1&&i.set(o,a(l))),this.wNAF(c,l,s)}}}function ar(t){return nr(t.Fp),ve(t,{n:"bigint",h:"bigint",Gx:"field",Gy:"field"},{nBitLength:"isSafeInteger",nByteLength:"isSafeInteger"}),Object.freeze({...or(t.n,t.nBitLength),...t,p:t.Fp.ORDER})}function Xi(t){let e=ar(t);ve(e,{a:"field",b:"field"},{allowedPrivateKeyLengths:"array",wrapPrivateKey:"boolean",isTorsionFree:"function",clearCofactor:"function",allowInfinityPoint:"boolean",fromBytes:"function",toBytes:"function"});let{endo:r,Fp:n,a:o}=e;if(r){if(!n.eql(o,n.ZERO))throw new Error("Endomorphism can only be defined for Koblitz curves that have a=0");if(typeof r!="object"||typeof r.beta!="bigint"||typeof r.splitScalar!="function")throw new Error("Expected endomorphism with beta: bigint and splitScalar: function")}return Object.freeze({...e})}var{bytesToNumberBE:es,hexToBytes:ts}=tr,_e={Err:class extends Error{constructor(e=""){super(e)}},_parseInt(t){let{Err:e}=_e;if(t.length<2||t[0]!==2)throw new e("Invalid signature integer tag");let r=t[1],n=t.subarray(2,r+2);if(!r||n.length!==r)throw new e("Invalid signature integer: wrong length");if(n[0]&128)throw new e("Invalid signature integer: negative");if(n[0]===0&&!(n[1]&128))throw new e("Invalid signature integer: unnecessary leading zero");return{d:es(n),l:t.subarray(r+2)}},toSig(t){let{Err:e}=_e,r=typeof t=="string"?ts(t):t;Ve(r);let n=r.length;if(n<2||r[0]!=48)throw new e("Invalid signature tag");if(r[1]!==n-2)throw new e("Invalid signature: incorrect length");let{d:o,l:i}=_e._parseInt(r.subarray(2)),{d:s,l:a}=_e._parseInt(i);if(a.length)throw new e("Invalid signature: left bytes after parsing");return{r:o,s}},hexFromSig(t){let e=l=>Number.parseInt(l[0],16)&8?"00"+l:l,r=l=>{let f=l.toString(16);return f.length&1?`0${f}`:f},n=e(r(t.s)),o=e(r(t.r)),i=n.length/2,s=o.length/2,a=r(i),c=r(s);return`30${r(s+i+4)}02${c}${o}02${a}${n}`}},ce=BigInt(0),Q=BigInt(1),Qa=BigInt(2),vn=BigInt(3),Ja=BigInt(4);function rs(t){let e=Xi(t),{Fp:r}=e,n=e.toBytes||((b,d,p)=>{let g=d.toAffine();return Ge(Uint8Array.from([4]),r.toBytes(g.x),r.toBytes(g.y))}),o=e.fromBytes||(b=>{let d=b.subarray(1),p=r.fromBytes(d.subarray(0,r.BYTES)),g=r.fromBytes(d.subarray(r.BYTES,2*r.BYTES));return{x:p,y:g}});function i(b){let{a:d,b:p}=e,g=r.sqr(b),B=r.mul(g,b);return r.add(r.add(B,r.mul(b,d)),p)}if(!r.eql(r.sqr(e.Gy),i(e.Gx)))throw new Error("bad generator point: equation left != right");function s(b){return typeof b=="bigint"&&ce<b&&b<e.n}function a(b){if(!s(b))throw new Error("Expected valid bigint: 0 < bigint < curve.n")}function c(b){let{allowedPrivateKeyLengths:d,nByteLength:p,wrapPrivateKey:g,n:B}=e;if(d&&typeof b!="bigint"){if(xe(b)&&(b=Re(b)),typeof b!="string"||!d.includes(b.length))throw new Error("Invalid key");b=b.padStart(p*2,"0")}let y;try{y=typeof b=="bigint"?b:ae(W("private key",b,p))}catch{throw new Error(`private key must be ${p} bytes, hex or bigint, not ${typeof b}`)}return g&&(y=$(y,B)),a(y),y}let l=new Map;function f(b){if(!(b instanceof u))throw new Error("ProjectivePoint expected")}class u{constructor(d,p,g){if(this.px=d,this.py=p,this.pz=g,d==null||!r.isValid(d))throw new Error("x required");if(p==null||!r.isValid(p))throw new Error("y required");if(g==null||!r.isValid(g))throw new Error("z required")}static fromAffine(d){let{x:p,y:g}=d||{};if(!d||!r.isValid(p)||!r.isValid(g))throw new Error("invalid affine point");if(d instanceof u)throw new Error("projective point not allowed");let B=y=>r.eql(y,r.ZERO);return B(p)&&B(g)?u.ZERO:new u(p,g,r.ONE)}get x(){return this.toAffine().x}get y(){return this.toAffine().y}static normalizeZ(d){let p=r.invertBatch(d.map(g=>g.pz));return d.map((g,B)=>g.toAffine(p[B])).map(u.fromAffine)}static fromHex(d){let p=u.fromAffine(o(W("pointHex",d)));return p.assertValidity(),p}static fromPrivateKey(d){return u.BASE.multiply(c(d))}_setWindowSize(d){this._WINDOW_SIZE=d,l.delete(this)}assertValidity(){if(this.is0()){if(e.allowInfinityPoint&&!r.is0(this.py))return;throw new Error("bad point: ZERO")}let{x:d,y:p}=this.toAffine();if(!r.isValid(d)||!r.isValid(p))throw new Error("bad point: x or y not FE");let g=r.sqr(p),B=i(d);if(!r.eql(g,B))throw new Error("bad point: equation left != right");if(!this.isTorsionFree())throw new Error("bad point: not in prime-order subgroup")}hasEvenY(){let{y:d}=this.toAffine();if(r.isOdd)return!r.isOdd(d);throw new Error("Field doesn't support isOdd")}equals(d){f(d);let{px:p,py:g,pz:B}=this,{px:y,py:C,pz:E}=d,x=r.eql(r.mul(p,E),r.mul(y,B)),A=r.eql(r.mul(g,E),r.mul(C,B));return x&&A}negate(){return new u(this.px,r.neg(this.py),this.pz)}double(){let{a:d,b:p}=e,g=r.mul(p,vn),{px:B,py:y,pz:C}=this,E=r.ZERO,x=r.ZERO,A=r.ZERO,S=r.mul(B,B),q=r.mul(y,y),R=r.mul(C,C),L=r.mul(B,y);return L=r.add(L,L),A=r.mul(B,C),A=r.add(A,A),E=r.mul(d,A),x=r.mul(g,R),x=r.add(E,x),E=r.sub(q,x),x=r.add(q,x),x=r.mul(E,x),E=r.mul(L,E),A=r.mul(g,A),R=r.mul(d,R),L=r.sub(S,R),L=r.mul(d,L),L=r.add(L,A),A=r.add(S,S),S=r.add(A,S),S=r.add(S,R),S=r.mul(S,L),x=r.add(x,S),R=r.mul(y,C),R=r.add(R,R),S=r.mul(R,L),E=r.sub(E,S),A=r.mul(R,q),A=r.add(A,A),A=r.add(A,A),new u(E,x,A)}add(d){f(d);let{px:p,py:g,pz:B}=this,{px:y,py:C,pz:E}=d,x=r.ZERO,A=r.ZERO,S=r.ZERO,q=e.a,R=r.mul(e.b,vn),L=r.mul(p,y),D=r.mul(g,C),j=r.mul(B,E),re=r.add(p,g),m=r.add(y,C);re=r.mul(re,m),m=r.add(L,D),re=r.sub(re,m),m=r.add(p,B);let v=r.add(y,E);return m=r.mul(m,v),v=r.add(L,j),m=r.sub(m,v),v=r.add(g,B),x=r.add(C,E),v=r.mul(v,x),x=r.add(D,j),v=r.sub(v,x),S=r.mul(q,m),x=r.mul(R,j),S=r.add(x,S),x=r.sub(D,S),S=r.add(D,S),A=r.mul(x,S),D=r.add(L,L),D=r.add(D,L),j=r.mul(q,j),m=r.mul(R,m),D=r.add(D,j),j=r.sub(L,j),j=r.mul(q,j),m=r.add(m,j),L=r.mul(D,m),A=r.add(A,L),L=r.mul(v,m),x=r.mul(re,x),x=r.sub(x,L),L=r.mul(re,D),S=r.mul(v,S),S=r.add(S,L),new u(x,A,S)}subtract(d){return this.add(d.negate())}is0(){return this.equals(u.ZERO)}wNAF(d){return w.wNAFCached(this,l,d,p=>{let g=r.invertBatch(p.map(B=>B.pz));return p.map((B,y)=>B.toAffine(g[y])).map(u.fromAffine)})}multiplyUnsafe(d){let p=u.ZERO;if(d===ce)return p;if(a(d),d===Q)return this;let{endo:g}=e;if(!g)return w.unsafeLadder(this,d);let{k1neg:B,k1:y,k2neg:C,k2:E}=g.splitScalar(d),x=p,A=p,S=this;for(;y>ce||E>ce;)y&Q&&(x=x.add(S)),E&Q&&(A=A.add(S)),S=S.double(),y>>=Q,E>>=Q;return B&&(x=x.negate()),C&&(A=A.negate()),A=new u(r.mul(A.px,g.beta),A.py,A.pz),x.add(A)}multiply(d){a(d);let p=d,g,B,{endo:y}=e;if(y){let{k1neg:C,k1:E,k2neg:x,k2:A}=y.splitScalar(p),{p:S,f:q}=this.wNAF(E),{p:R,f:L}=this.wNAF(A);S=w.constTimeNegate(C,S),R=w.constTimeNegate(x,R),R=new u(r.mul(R.px,y.beta),R.py,R.pz),g=S.add(R),B=q.add(L)}else{let{p:C,f:E}=this.wNAF(p);g=C,B=E}return u.normalizeZ([g,B])[0]}multiplyAndAddUnsafe(d,p,g){let B=u.BASE,y=(E,x)=>x===ce||x===Q||!E.equals(B)?E.multiplyUnsafe(x):E.multiply(x),C=y(this,p).add(y(d,g));return C.is0()?void 0:C}toAffine(d){let{px:p,py:g,pz:B}=this,y=this.is0();d==null&&(d=y?r.ONE:r.inv(B));let C=r.mul(p,d),E=r.mul(g,d),x=r.mul(B,d);if(y)return{x:r.ZERO,y:r.ZERO};if(!r.eql(x,r.ONE))throw new Error("invZ was invalid");return{x:C,y:E}}isTorsionFree(){let{h:d,isTorsionFree:p}=e;if(d===Q)return!0;if(p)return p(u,this);throw new Error("isTorsionFree() has not been declared for the elliptic curve")}clearCofactor(){let{h:d,clearCofactor:p}=e;return d===Q?this:p?p(u,this):this.multiplyUnsafe(e.h)}toRawBytes(d=!0){return this.assertValidity(),n(u,this,d)}toHex(d=!0){return Re(this.toRawBytes(d))}}u.BASE=new u(e.Gx,e.Gy,r.ONE),u.ZERO=new u(r.ZERO,r.ONE,r.ZERO);let h=e.nBitLength,w=En(u,e.endo?Math.ceil(h/2):h);return{CURVE:e,ProjectivePoint:u,normPrivateKeyToScalar:c,weierstrassEquation:i,isWithinCurveOrder:s}}function ns(t){let e=ar(t);return ve(e,{hash:"hash",hmac:"function",randomBytes:"function"},{bits2int:"function",bits2int_modN:"function",lowS:"boolean"}),Object.freeze({lowS:!0,...e})}function Bn(t){let e=ns(t),{Fp:r,n}=e,o=r.BYTES+1,i=2*r.BYTES+1;function s(m){return ce<m&&m<r.ORDER}function a(m){return $(m,n)}function c(m){return Bt(m,n)}let{ProjectivePoint:l,normPrivateKeyToScalar:f,weierstrassEquation:u,isWithinCurveOrder:h}=rs({...e,toBytes(m,v,T){let H=v.toAffine(),P=r.toBytes(H.x),z=Ge;return T?z(Uint8Array.from([v.hasEvenY()?2:3]),P):z(Uint8Array.from([4]),P,r.toBytes(H.y))},fromBytes(m){let v=m.length,T=m[0],H=m.subarray(1);if(v===o&&(T===2||T===3)){let P=ae(H);if(!s(P))throw new Error("Point is not on curve");let z=u(P),G;try{G=r.sqrt(z)}catch(X){let fe=X instanceof Error?": "+X.message:"";throw new Error("Point is not on curve"+fe)}let Y=(G&Q)===Q;return(T&1)===1!==Y&&(G=r.neg(G)),{x:P,y:G}}else if(v===i&&T===4){let P=r.fromBytes(H.subarray(0,r.BYTES)),z=r.fromBytes(H.subarray(r.BYTES,2*r.BYTES));return{x:P,y:z}}else throw new Error(`Point of length ${v} was invalid. Expected ${o} compressed bytes or ${i} uncompressed bytes`)}}),w=m=>Re(Ee(m,e.nByteLength));function b(m){let v=n>>Q;return m>v}function d(m){return b(m)?a(-m):m}let p=(m,v,T)=>ae(m.slice(v,T));class g{constructor(v,T,H){this.r=v,this.s=T,this.recovery=H,this.assertValidity()}static fromCompact(v){let T=e.nByteLength;return v=W("compactSignature",v,T*2),new g(p(v,0,T),p(v,T,2*T))}static fromDER(v){let{r:T,s:H}=_e.toSig(W("DER",v));return new g(T,H)}assertValidity(){if(!h(this.r))throw new Error("r must be 0 < r < CURVE.n");if(!h(this.s))throw new Error("s must be 0 < s < CURVE.n")}addRecoveryBit(v){return new g(this.r,this.s,v)}recoverPublicKey(v){let{r:T,s:H,recovery:P}=this,z=A(W("msgHash",v));if(P==null||![0,1,2,3].includes(P))throw new Error("recovery id invalid");let G=P===2||P===3?T+e.n:T;if(G>=r.ORDER)throw new Error("recovery id 2 or 3 invalid");let Y=(P&1)===0?"02":"03",ue=l.fromHex(Y+w(G)),X=c(G),fe=a(-z*X),Je=a(H*X),de=l.BASE.multiplyAndAddUnsafe(ue,fe,Je);if(!de)throw new Error("point at infinify");return de.assertValidity(),de}hasHighS(){return b(this.s)}normalizeS(){return this.hasHighS()?new g(this.r,a(-this.s),this.recovery):this}toDERRawBytes(){return Ue(this.toDERHex())}toDERHex(){return _e.hexFromSig({r:this.r,s:this.s})}toCompactRawBytes(){return Ue(this.toCompactHex())}toCompactHex(){return w(this.r)+w(this.s)}}let B={isValidPrivateKey(m){try{return f(m),!0}catch{return!1}},normPrivateKeyToScalar:f,randomPrivateKey:()=>{let m=ir(e.n);return xn(e.randomBytes(m),e.n)},precompute(m=8,v=l.BASE){return v._setWindowSize(m),v.multiply(BigInt(3)),v}};function y(m,v=!0){return l.fromPrivateKey(m).toRawBytes(v)}function C(m){let v=xe(m),T=typeof m=="string",H=(v||T)&&m.length;return v?H===o||H===i:T?H===2*o||H===2*i:m instanceof l}function E(m,v,T=!0){if(C(m))throw new Error("first arg must be private key");if(!C(v))throw new Error("second arg must be public key");return l.fromHex(v).multiply(f(m)).toRawBytes(T)}let x=e.bits2int||function(m){let v=ae(m),T=m.length*8-e.nBitLength;return T>0?v>>BigInt(T):v},A=e.bits2int_modN||function(m){return a(x(m))},S=rt(e.nBitLength);function q(m){if(typeof m!="bigint")throw new Error("bigint expected");if(!(ce<=m&&m<S))throw new Error(`bigint expected < 2^${e.nBitLength}`);return Ee(m,e.nByteLength)}function R(m,v,T=L){if(["recovered","canonical"].some(ke=>ke in T))throw new Error("sign() legacy options not supported");let{hash:H,randomBytes:P}=e,{lowS:z,prehash:G,extraEntropy:Y}=T;z==null&&(z=!0),m=W("msgHash",m),G&&(m=W("prehashed msgHash",H(m)));let ue=A(m),X=f(v),fe=[q(X),q(ue)];if(Y!=null&&Y!==!1){let ke=Y===!0?P(r.BYTES):Y;fe.push(W("extraEntropy",ke))}let Je=Ge(...fe),de=ue;function Mt(ke){let Ke=x(ke);if(!h(Ke))return;let Or=c(Ke),ne=l.BASE.multiply(Ke).toAffine(),De=a(ne.x);if(De===ce)return;let dt=a(Or*a(de+De*X));if(dt===ce)return;let Kr=(ne.x===De?0:2)|Number(ne.y&Q),Dr=dt;return z&&b(dt)&&(Dr=d(dt),Kr^=1),new g(De,Dr,Kr)}return{seed:Je,k2sig:Mt}}let L={lowS:e.lowS,prehash:!1},D={lowS:e.lowS,prehash:!1};function j(m,v,T=L){let{seed:H,k2sig:P}=R(m,v,T),z=e;return er(z.hash.outputLen,z.nByteLength,z.hmac)(H,P)}l.BASE._setWindowSize(8);function re(m,v,T,H=D){let P=m;if(v=W("msgHash",v),T=W("publicKey",T),"strict"in H)throw new Error("options.strict was renamed to lowS");let{lowS:z,prehash:G}=H,Y,ue;try{if(typeof P=="string"||xe(P))try{Y=g.fromDER(P)}catch(ne){if(!(ne instanceof _e.Err))throw ne;Y=g.fromCompact(P)}else if(typeof P=="object"&&typeof P.r=="bigint"&&typeof P.s=="bigint"){let{r:ne,s:De}=P;Y=new g(ne,De)}else throw new Error("PARSE");ue=l.fromHex(T)}catch(ne){if(ne.message==="PARSE")throw new Error("signature must be Signature instance, Uint8Array or hex string");return!1}if(z&&Y.hasHighS())return!1;G&&(v=e.hash(v));let{r:X,s:fe}=Y,Je=A(v),de=c(fe),Mt=a(Je*de),ke=a(X*de),Ke=l.BASE.multiplyAndAddUnsafe(ue,Mt,ke)?.toAffine();return Ke?a(Ke.x)===X:!1}return{CURVE:e,getPublicKey:y,getSharedSecret:E,sign:j,verify:re,ProjectivePoint:l,Signature:g,utils:B}}function os(t){return{hash:t,hmac:(e,...r)=>pe(t,e,Te(...r)),randomBytes:Yr}}function An(t,e){let r=n=>Bn({...t,...os(n)});return Object.freeze({...r(e),create:r})}var kn=BigInt("0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f"),Sn=BigInt("0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141"),is=BigInt(1),cr=BigInt(2),Cn=(t,e)=>(t+e/cr)/e;function ss(t){let e=kn,r=BigInt(3),n=BigInt(6),o=BigInt(11),i=BigInt(22),s=BigInt(23),a=BigInt(44),c=BigInt(88),l=t*t*t%e,f=l*l*t%e,u=F(f,r,e)*f%e,h=F(u,r,e)*f%e,w=F(h,cr,e)*l%e,b=F(w,o,e)*w%e,d=F(b,i,e)*b%e,p=F(d,a,e)*d%e,g=F(p,c,e)*p%e,B=F(g,a,e)*d%e,y=F(B,r,e)*f%e,C=F(y,s,e)*b%e,E=F(C,n,e)*l%e,x=F(E,cr,e);if(!lr.eql(lr.sqr(x),t))throw new Error("Cannot find square root");return x}var lr=yn(kn,void 0,void 0,{sqrt:ss}),te=An({a:BigInt(0),b:BigInt(7),Fp:lr,n:Sn,Gx:BigInt("55066263022277343669578718895168534326250603453777594175500187360389116729240"),Gy:BigInt("32670510020758816978083085130507043184471273380659243275938904335757337482424"),h:BigInt(1),lowS:!0,endo:{beta:BigInt("0x7ae96a2b657c07106e64479eac3434e99cf0497512f58995c1396c28719501ee"),splitScalar:t=>{let e=Sn,r=BigInt("0x3086d221a7d46bcde86c90e49284eb15"),n=-is*BigInt("0xe4437ed6010e88286f547fa90abfe4c3"),o=BigInt("0x114ca50f7a8e2f3f657c1108d9d44cfd8"),i=r,s=BigInt("0x100000000000000000000000000000000"),a=Cn(i*t,e),c=Cn(-n*t,e),l=$(t-a*r-c*o,e),f=$(-a*n-c*i,e),u=l>s,h=f>s;if(u&&(l=e-l),h&&(f=e-f),l>s||f>s)throw new Error("splitScalar: Endomorphism failed, k="+t);return{k1neg:u,k1:l,k2neg:h,k2:f}}}},Le),ac=BigInt(0);var cc=te.ProjectivePoint;var At=te.ProjectivePoint,ur=nn(Le);function In(t){return BigInt(`0x${jr(t)}`)}function as(t){return Vr(t.toString(16).padStart(64,"0"))}var cs=Kt("Bitcoin seed"),fr={private:76066276,public:76067358},dr=2147483648,ls=t=>fn(Le(t)),us=t=>oe(t).getUint32(0,!1),St=t=>{if(!Number.isSafeInteger(t)||t<0||t>2**32-1)throw new Error(`Invalid number=${t}. Should be from 0 to 2 ** 32 - 1`);let e=new Uint8Array(4);return oe(e).setUint32(0,t,!1),e},Ct=class t{get fingerprint(){if(!this.pubHash)throw new Error("No publicKey set!");return us(this.pubHash)}get identifier(){return this.pubHash}get pubKeyHash(){return this.pubHash}get privateKey(){return this.privKeyBytes||null}get publicKey(){return this.pubKey||null}get privateExtendedKey(){let e=this.privateKey;if(!e)throw new Error("No private key");return ur.encode(this.serialize(this.versions.private,Te(new Uint8Array([0]),e)))}get publicExtendedKey(){if(!this.pubKey)throw new Error("No public key");return ur.encode(this.serialize(this.versions.public,this.pubKey))}static fromMasterSeed(e,r=fr){if(V(e),8*e.length<128||8*e.length>512)throw new Error(`HDKey: wrong seed length=${e.length}. Should be between 128 and 512 bits; 256 bits is advised)`);let n=pe(et,cs,e);return new t({versions:r,chainCode:n.slice(32),privateKey:n.slice(0,32)})}static fromExtendedKey(e,r=fr){let n=ur.decode(e),o=oe(n),i=o.getUint32(0,!1),s={versions:r,depth:n[4],parentFingerprint:o.getUint32(5,!1),index:o.getUint32(9,!1),chainCode:n.slice(13,45)},a=n.slice(45),c=a[0]===0;if(i!==r[c?"private":"public"])throw new Error("Version mismatch");return c?new t({...s,privateKey:a.slice(1)}):new t({...s,publicKey:a})}static fromJSON(e){return t.fromExtendedKey(e.xpriv)}constructor(e){if(this.depth=0,this.index=0,this.chainCode=null,this.parentFingerprint=0,!e||typeof e!="object")throw new Error("HDKey.constructor must not be called directly");if(this.versions=e.versions||fr,this.depth=e.depth||0,this.chainCode=e.chainCode||null,this.index=e.index||0,this.parentFingerprint=e.parentFingerprint||0,!this.depth&&(this.parentFingerprint||this.index))throw new Error("HDKey: zero depth with non-zero index/parent fingerprint");if(e.publicKey&&e.privateKey)throw new Error("HDKey: publicKey and privateKey at same time.");if(e.privateKey){if(!te.utils.isValidPrivateKey(e.privateKey))throw new Error("Invalid private key");this.privKey=typeof e.privateKey=="bigint"?e.privateKey:In(e.privateKey),this.privKeyBytes=as(this.privKey),this.pubKey=te.getPublicKey(e.privateKey,!0)}else if(e.publicKey)this.pubKey=At.fromHex(e.publicKey).toRawBytes(!0);else throw new Error("HDKey: no public or private key provided");this.pubHash=ls(this.pubKey)}derive(e){if(!/^[mM]'?/.test(e))throw new Error('Path must start with "m" or "M"');if(/^[mM]'?$/.test(e))return this;let r=e.replace(/^[mM]'?\//,"").split("/"),n=this;for(let o of r){let i=/^(\d+)('?)$/.exec(o),s=i&&i[1];if(!i||i.length!==3||typeof s!="string")throw new Error(`Invalid child index: ${o}`);let a=+s;if(!Number.isSafeInteger(a)||a>=dr)throw new Error("Invalid index");i[2]==="'"&&(a+=dr),n=n.deriveChild(a)}return n}deriveChild(e){if(!this.pubKey||!this.chainCode)throw new Error("No publicKey or chainCode set");let r=St(e);if(e>=dr){let a=this.privateKey;if(!a)throw new Error("Could not derive hardened child key");r=Te(new Uint8Array([0]),a,r)}else r=Te(this.pubKey,r);let n=pe(et,this.chainCode,r),o=In(n.slice(0,32)),i=n.slice(32);if(!te.utils.isValidPrivateKey(o))throw new Error("Tweak bigger than curve order");let s={versions:this.versions,chainCode:i,depth:this.depth+1,parentFingerprint:this.fingerprint,index:e};try{if(this.privateKey){let a=$(this.privKey+o,te.CURVE.n);if(!te.utils.isValidPrivateKey(a))throw new Error("The tweak was out of range or the resulted private key is invalid");s.privateKey=a}else{let a=At.fromHex(this.pubKey).add(At.fromPrivateKey(o));if(a.equals(At.ZERO))throw new Error("The tweak was equal to negative P, which made the result key invalid");s.publicKey=a.toRawBytes(!0)}return new t(s)}catch{return this.deriveChild(e+1)}}sign(e){if(!this.privateKey)throw new Error("No privateKey set!");return V(e,32),te.sign(e,this.privKey).toCompactRawBytes()}verify(e,r){if(V(e,32),V(r,64),!this.publicKey)throw new Error("No publicKey set!");let n;try{n=te.Signature.fromCompact(r)}catch{return!1}return te.verify(n,e,this.publicKey)}wipePrivateData(){return this.privKey=void 0,this.privKeyBytes&&(this.privKeyBytes.fill(0),this.privKeyBytes=void 0),this}toJSON(){return{xpriv:this.privateExtendedKey,xpub:this.publicExtendedKey}}serialize(e,r){if(!this.chainCode)throw new Error("No chainCode set");return V(r,33),Te(St(e),new Uint8Array([this.depth]),St(this.parentFingerprint),St(this.index),this.chainCode,r)}};var Hr=Oo(To()),Z=t=>document.getElementById(t),I={mnemonic:Z("mnemonic"),passphrase:Z("passphrase"),error:Z("mnemonicError"),libStatus:Z("libStatus"),fpPlain:Z("fpPlain"),fpPass:Z("fpPass"),btnQrPlain:Z("btnQrPlain"),btnQrPass:Z("btnQrPass"),modal:Z("modal"),modalClose:Z("modalClose"),modalTitle:Z("modalTitle"),modalFp:Z("modalFp"),modalQr:Z("modalQr"),modalNote:Z("modalNote")};function oa(t){let e=t.trim().split(/\s+/),r=e.map(i=>{let s=Zt.indexOf(i);if(s<0)throw new Error(`Unknown word: ${i}`);return s.toString(2).padStart(11,"0")}).join(""),n=e.length*32/3/8,o=(r.match(/[01]{8}/g)||[]).map(i=>parseInt(i,2)).slice(0,n);return new Uint8Array(o)}function Lo(t){return(Ct.fromMasterSeed(t).fingerprint>>>0).toString(16).padStart(8,"0")}function ia(t){return t.trim().toLowerCase().replace(/\s+/g," ")}function sa(t){let e=t.split(" ");return e.length!==12&&e.length!==24?"Enter exactly 12 or 24 words.":an(t,Zt)?"":"Invalid BIP39 mnemonic (checksum or wordlist)."}var ft={valid:!1,phrase:"",pass:""};function qr(){try{let t=ia(I.mnemonic.value),e=I.passphrase.value,r=t?sa(t):"";if(I.error.textContent=r,I.error.classList.toggle("hidden",!r),!t||r){ft={valid:!1,phrase:"",pass:""},I.fpPlain.textContent="\u2014",I.fpPass.textContent="\u2014",I.btnQrPlain.disabled=!0,I.btnQrPass.disabled=!0;return}let n=Yt(t,""),o=Yt(t,e);I.fpPlain.textContent=Lo(n),I.fpPass.textContent=Lo(o),I.btnQrPlain.disabled=!1,I.btnQrPass.disabled=!1,ft={valid:!0,phrase:t,pass:e}}catch(t){console.error(t),I.error.textContent=t.message||String(t),I.error.classList.remove("hidden"),I.btnQrPlain.disabled=!0,I.btnQrPass.disabled=!0}}async function No({title:t,fp:e,note:r,qrValue:n,binary:o}){I.modalTitle.textContent=t,I.modalFp.textContent=e?`Fingerprint: ${e}`:"",I.modalNote.textContent=r||"",I.modalQr.innerHTML="";let i=document.createElement("canvas");if(o){let s=String.fromCharCode(...n);await Hr.default.toCanvas(i,[{data:s,mode:"byte"}],{errorCorrectionLevel:"L",margin:2,width:280,color:{dark:"#00151a",light:"#f99925"}})}else await Hr.default.toCanvas(i,n,{errorCorrectionLevel:"L",margin:2,width:280,color:{dark:"#00151a",light:"#f99925"}});I.modalQr.appendChild(i),I.modal.classList.remove("hidden"),I.modal.classList.add("flex")}function Mr(){I.modal.classList.add("hidden"),I.modal.classList.remove("flex"),I.modalQr.innerHTML=""}I.mnemonic.addEventListener("input",qr);I.passphrase.addEventListener("input",qr);I.btnQrPlain.addEventListener("click",async()=>{if(ft.valid)try{let t=oa(ft.phrase);await No({title:"Compact SeedQR (mnemonic only)",fp:I.fpPlain.textContent,note:"Does not include passphrase. Compatible with SeedSigner / Jade Compact SeedQR.",qrValue:t,binary:!0})}catch(t){console.error(t),I.error.textContent=t.message||String(t),I.error.classList.remove("hidden")}});I.btnQrPass.addEventListener("click",async()=>{if(ft.valid)try{await No({title:"BIP39 passphrase",fp:"",note:"Plain-text passphrase. Keep this QR private.",qrValue:I.passphrase.value,binary:!1})}catch(t){console.error(t),I.error.textContent=t.message||String(t),I.error.classList.remove("hidden")}});I.modalClose.addEventListener("click",Mr);I.modal.addEventListener("click",t=>{t.target===I.modal&&Mr()});document.addEventListener("keydown",t=>{t.key==="Escape"&&Mr()});qr();})();
+/*! Bundled license information:
+
+@noble/hashes/esm/utils.js:
+  (*! noble-hashes - MIT License (c) 2022 Paul Miller (paulmillr.com) *)
+
+@scure/base/lib/esm/index.js:
+  (*! scure-base - MIT License (c) 2022 Paul Miller (paulmillr.com) *)
+
+@scure/bip39/esm/index.js:
+  (*! scure-bip39 - MIT License (c) 2022 Patricio Palladino, Paul Miller (paulmillr.com) *)
+
+@noble/curves/esm/abstract/utils.js:
+@noble/curves/esm/abstract/modular.js:
+@noble/curves/esm/abstract/curve.js:
+@noble/curves/esm/abstract/weierstrass.js:
+@noble/curves/esm/_shortw_utils.js:
+@noble/curves/esm/secp256k1.js:
+  (*! noble-curves - MIT License (c) 2022 Paul Miller (paulmillr.com) *)
+
+@scure/bip32/lib/esm/index.js:
+  (*! scure-bip32 - MIT License (c) 2022 Patricio Palladino, Paul Miller (paulmillr.com) *)
+*/
+</script>
+</body>
+</html>
