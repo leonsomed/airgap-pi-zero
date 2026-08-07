@@ -36,23 +36,12 @@ Afterwards you can open the control center to add a printer.
 
 ### Download files
 
+Remember to follow instructions in each repo to install dependencies:
+
 - Download https://github.com/leonsomed/selfcrypt 
-- Download https://github.com/leonsomed/qr-file-transfer 
-- Setup python following this guide in the pi4 https://raspberrytips.com/install-opencv-on-raspberry-pi/ but can be summarized as:
-
-```bash
-sudo apt update
-sudo apt upgrade
-pip install --upgrade pip setuptools wheel
-sudo apt install libjpeg-dev zlib1g-dev
-sudo apt-get install libopenblas-dev
-```
-
-### Download bitcoin helper page
-
-This is the page that lets you show QR codes from BIP 39 and pass phrases. Build the project to get a static html file that you can open offline in an airgap device. Or just copy the btc-latest.html file from the repo.
-
-https://github.com/leonsomed/airgap-pi-zero/blob/main/btc-latest.html
+- Download https://github.com/leonsomed/seed-qr
+- Download https://github.com/leonsomed/bip39-symbols
+- Download https://github.com/leonsomed/qr-scanner-py
 
 ### Create .img
 
@@ -67,11 +56,13 @@ You can then use Pi Imager to burn this image to a new SD card so make sure to b
 
 ### Done
 
-You are ready to use your pi zero
-
-Connect the camera module. It is enabled automatically. Take a picture: 
+You are ready to use your pi zero. For example you can use qr-scanner-py you can use a USB camera or a pi zero camera to scan a selfcrypt QR code then decrypt it with selfcrypt and then feed it to seed-qr to load into a wallet:
 
 ```bash
-rpicam-still -o ~/Desktop/image.jpg
+cd ~/Desktop/qr-scanner-py
+python scan.py # or python pi-camera2.py
+selfcrypt -i blob.json -do
+# copy seed and pass phrases
+cd ../seed-qr
+seedqr --interactive --output-dir wallet-a
 ```
-
